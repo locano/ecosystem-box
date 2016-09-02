@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbb_GudBoxModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="INSTRUCCION">
+          <Key>
+            <PropertyRef Name="id_instruccion" />
+          </Key>
+          <Property Name="id_instruccion" Type="int" Nullable="false" />
+          <Property Name="instruccion" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="id_semilla" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MACETAS">
+          <Key>
+            <PropertyRef Name="id_macetas" />
+          </Key>
+          <Property Name="id_macetas" Type="int" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="id_semilla" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OBTENCION">
+          <Key>
+            <PropertyRef Name="id_obtencion" />
+          </Key>
+          <Property Name="id_obtencion" Type="int" Nullable="false" />
+          <Property Name="paso" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="id_semilla" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SEMILLA">
+          <Key>
+            <PropertyRef Name="id_semilla" />
+          </Key>
+          <Property Name="id_semilla" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="epoca" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="tierra" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="temp_minima" Type="int" Nullable="false" />
+          <Property Name="temp_maxima" Type="int" Nullable="false" />
+          <Property Name="sol" Type="varchar" MaxLength="350" Nullable="false" />
+          <Property Name="riego" Type="varchar" MaxLength="350" Nullable="false" />
+        </EntityType>
+        <Association Name="INSTRUCCIONES_SEMILLA_FK">
+          <End Role="SEMILLA" Type="Self.SEMILLA" Multiplicity="1" />
+          <End Role="INSTRUCCION" Type="Self.INSTRUCCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEMILLA">
+              <PropertyRef Name="id_semilla" />
+            </Principal>
+            <Dependent Role="INSTRUCCION">
+              <PropertyRef Name="id_semilla" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MACETAS_SEMILLA_FK">
+          <End Role="SEMILLA" Type="Self.SEMILLA" Multiplicity="1" />
+          <End Role="MACETAS" Type="Self.MACETAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEMILLA">
+              <PropertyRef Name="id_semilla" />
+            </Principal>
+            <Dependent Role="MACETAS">
+              <PropertyRef Name="id_semilla" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OBTENCION_SEMILLA_FK">
+          <End Role="SEMILLA" Type="Self.SEMILLA" Multiplicity="1" />
+          <End Role="OBTENCION" Type="Self.OBTENCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEMILLA">
+              <PropertyRef Name="id_semilla" />
+            </Principal>
+            <Dependent Role="OBTENCION">
+              <PropertyRef Name="id_semilla" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbb_GudBoxModelStoreContainer">
+          <EntitySet Name="INSTRUCCION" EntityType="Self.INSTRUCCION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MACETAS" EntityType="Self.MACETAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OBTENCION" EntityType="Self.OBTENCION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SEMILLA" EntityType="Self.SEMILLA" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="INSTRUCCIONES_SEMILLA_FK" Association="Self.INSTRUCCIONES_SEMILLA_FK">
+            <End Role="SEMILLA" EntitySet="SEMILLA" />
+            <End Role="INSTRUCCION" EntitySet="INSTRUCCION" />
+          </AssociationSet>
+          <AssociationSet Name="MACETAS_SEMILLA_FK" Association="Self.MACETAS_SEMILLA_FK">
+            <End Role="SEMILLA" EntitySet="SEMILLA" />
+            <End Role="MACETAS" EntitySet="MACETAS" />
+          </AssociationSet>
+          <AssociationSet Name="OBTENCION_SEMILLA_FK" Association="Self.OBTENCION_SEMILLA_FK">
+            <End Role="SEMILLA" EntitySet="SEMILLA" />
+            <End Role="OBTENCION" EntitySet="OBTENCION" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbb_GudBoxModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="INSTRUCCION">
+          <Key>
+            <PropertyRef Name="id_instruccion" />
+          </Key>
+          <Property Name="id_instruccion" Type="Int32" Nullable="false" />
+          <Property Name="instruccion1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_semilla" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SEMILLA" Relationship="Self.INSTRUCCIONES_SEMILLA_FK" FromRole="INSTRUCCION" ToRole="SEMILLA" />
+        </EntityType>
+        <EntityType Name="MACETAS">
+          <Key>
+            <PropertyRef Name="id_macetas" />
+          </Key>
+          <Property Name="id_macetas" Type="Int32" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_semilla" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SEMILLA" Relationship="Self.MACETAS_SEMILLA_FK" FromRole="MACETAS" ToRole="SEMILLA" />
+        </EntityType>
+        <EntityType Name="OBTENCION">
+          <Key>
+            <PropertyRef Name="id_obtencion" />
+          </Key>
+          <Property Name="id_obtencion" Type="Int32" Nullable="false" />
+          <Property Name="paso" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_semilla" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SEMILLA" Relationship="Self.OBTENCION_SEMILLA_FK" FromRole="OBTENCION" ToRole="SEMILLA" />
+        </EntityType>
+        <EntityType Name="SEMILLA">
+          <Key>
+            <PropertyRef Name="id_semilla" />
+          </Key>
+          <Property Name="id_semilla" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="epoca" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tierra" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="temp_minima" Type="Int32" Nullable="false" />
+          <Property Name="temp_maxima" Type="Int32" Nullable="false" />
+          <Property Name="sol" Type="String" MaxLength="350" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="riego" Type="String" MaxLength="350" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="INSTRUCCION" Relationship="Self.INSTRUCCIONES_SEMILLA_FK" FromRole="SEMILLA" ToRole="INSTRUCCION" />
+          <NavigationProperty Name="MACETAS" Relationship="Self.MACETAS_SEMILLA_FK" FromRole="SEMILLA" ToRole="MACETAS" />
+          <NavigationProperty Name="OBTENCION" Relationship="Self.OBTENCION_SEMILLA_FK" FromRole="SEMILLA" ToRole="OBTENCION" />
+        </EntityType>
+        <Association Name="INSTRUCCIONES_SEMILLA_FK">
+          <End Role="SEMILLA" Type="Self.SEMILLA" Multiplicity="1" />
+          <End Role="INSTRUCCION" Type="Self.INSTRUCCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEMILLA">
+              <PropertyRef Name="id_semilla" />
+            </Principal>
+            <Dependent Role="INSTRUCCION">
+              <PropertyRef Name="id_semilla" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MACETAS_SEMILLA_FK">
+          <End Role="SEMILLA" Type="Self.SEMILLA" Multiplicity="1" />
+          <End Role="MACETAS" Type="Self.MACETAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEMILLA">
+              <PropertyRef Name="id_semilla" />
+            </Principal>
+            <Dependent Role="MACETAS">
+              <PropertyRef Name="id_semilla" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OBTENCION_SEMILLA_FK">
+          <End Role="SEMILLA" Type="Self.SEMILLA" Multiplicity="1" />
+          <End Role="OBTENCION" Type="Self.OBTENCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEMILLA">
+              <PropertyRef Name="id_semilla" />
+            </Principal>
+            <Dependent Role="OBTENCION">
+              <PropertyRef Name="id_semilla" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbb_GudBoxEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="INSTRUCCION" EntityType="Self.INSTRUCCION" />
+          <EntitySet Name="MACETAS" EntityType="Self.MACETAS" />
+          <EntitySet Name="OBTENCION" EntityType="Self.OBTENCION" />
+          <EntitySet Name="SEMILLA" EntityType="Self.SEMILLA" />
+          <AssociationSet Name="INSTRUCCIONES_SEMILLA_FK" Association="Self.INSTRUCCIONES_SEMILLA_FK">
+            <End Role="SEMILLA" EntitySet="SEMILLA" />
+            <End Role="INSTRUCCION" EntitySet="INSTRUCCION" />
+          </AssociationSet>
+          <AssociationSet Name="MACETAS_SEMILLA_FK" Association="Self.MACETAS_SEMILLA_FK">
+            <End Role="SEMILLA" EntitySet="SEMILLA" />
+            <End Role="MACETAS" EntitySet="MACETAS" />
+          </AssociationSet>
+          <AssociationSet Name="OBTENCION_SEMILLA_FK" Association="Self.OBTENCION_SEMILLA_FK">
+            <End Role="SEMILLA" EntitySet="SEMILLA" />
+            <End Role="OBTENCION" EntitySet="OBTENCION" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbb_GudBoxModelStoreContainer" CdmEntityContainer="dbb_GudBoxEntities">
+          <EntitySetMapping Name="INSTRUCCION">
+            <EntityTypeMapping TypeName="dbb_GudBoxModel.INSTRUCCION">
+              <MappingFragment StoreEntitySet="INSTRUCCION">
+                <ScalarProperty Name="id_instruccion" ColumnName="id_instruccion" />
+                <ScalarProperty Name="instruccion1" ColumnName="instruccion" />
+                <ScalarProperty Name="id_semilla" ColumnName="id_semilla" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MACETAS">
+            <EntityTypeMapping TypeName="dbb_GudBoxModel.MACETAS">
+              <MappingFragment StoreEntitySet="MACETAS">
+                <ScalarProperty Name="id_macetas" ColumnName="id_macetas" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="id_semilla" ColumnName="id_semilla" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OBTENCION">
+            <EntityTypeMapping TypeName="dbb_GudBoxModel.OBTENCION">
+              <MappingFragment StoreEntitySet="OBTENCION">
+                <ScalarProperty Name="id_obtencion" ColumnName="id_obtencion" />
+                <ScalarProperty Name="paso" ColumnName="paso" />
+                <ScalarProperty Name="id_semilla" ColumnName="id_semilla" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SEMILLA">
+            <EntityTypeMapping TypeName="dbb_GudBoxModel.SEMILLA">
+              <MappingFragment StoreEntitySet="SEMILLA">
+                <ScalarProperty Name="id_semilla" ColumnName="id_semilla" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="epoca" ColumnName="epoca" />
+                <ScalarProperty Name="tierra" ColumnName="tierra" />
+                <ScalarProperty Name="temp_minima" ColumnName="temp_minima" />
+                <ScalarProperty Name="temp_maxima" ColumnName="temp_maxima" />
+                <ScalarProperty Name="sol" ColumnName="sol" />
+                <ScalarProperty Name="riego" ColumnName="riego" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

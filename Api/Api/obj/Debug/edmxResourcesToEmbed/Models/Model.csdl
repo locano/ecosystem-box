@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbb_GudBoxModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="INSTRUCCION">
+    <Key>
+      <PropertyRef Name="id_instruccion" />
+    </Key>
+    <Property Name="id_instruccion" Type="Int32" Nullable="false" />
+    <Property Name="instruccion1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_semilla" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SEMILLA" Relationship="Self.INSTRUCCIONES_SEMILLA_FK" FromRole="INSTRUCCION" ToRole="SEMILLA" />
+  </EntityType>
+  <EntityType Name="MACETAS">
+    <Key>
+      <PropertyRef Name="id_macetas" />
+    </Key>
+    <Property Name="id_macetas" Type="Int32" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_semilla" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SEMILLA" Relationship="Self.MACETAS_SEMILLA_FK" FromRole="MACETAS" ToRole="SEMILLA" />
+  </EntityType>
+  <EntityType Name="OBTENCION">
+    <Key>
+      <PropertyRef Name="id_obtencion" />
+    </Key>
+    <Property Name="id_obtencion" Type="Int32" Nullable="false" />
+    <Property Name="paso" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_semilla" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SEMILLA" Relationship="Self.OBTENCION_SEMILLA_FK" FromRole="OBTENCION" ToRole="SEMILLA" />
+  </EntityType>
+  <EntityType Name="SEMILLA">
+    <Key>
+      <PropertyRef Name="id_semilla" />
+    </Key>
+    <Property Name="id_semilla" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="epoca" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tierra" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="temp_minima" Type="Int32" Nullable="false" />
+    <Property Name="temp_maxima" Type="Int32" Nullable="false" />
+    <Property Name="sol" Type="String" MaxLength="350" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="riego" Type="String" MaxLength="350" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="INSTRUCCION" Relationship="Self.INSTRUCCIONES_SEMILLA_FK" FromRole="SEMILLA" ToRole="INSTRUCCION" />
+    <NavigationProperty Name="MACETAS" Relationship="Self.MACETAS_SEMILLA_FK" FromRole="SEMILLA" ToRole="MACETAS" />
+    <NavigationProperty Name="OBTENCION" Relationship="Self.OBTENCION_SEMILLA_FK" FromRole="SEMILLA" ToRole="OBTENCION" />
+  </EntityType>
+  <Association Name="INSTRUCCIONES_SEMILLA_FK">
+    <End Role="SEMILLA" Type="Self.SEMILLA" Multiplicity="1" />
+    <End Role="INSTRUCCION" Type="Self.INSTRUCCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEMILLA">
+        <PropertyRef Name="id_semilla" />
+      </Principal>
+      <Dependent Role="INSTRUCCION">
+        <PropertyRef Name="id_semilla" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MACETAS_SEMILLA_FK">
+    <End Role="SEMILLA" Type="Self.SEMILLA" Multiplicity="1" />
+    <End Role="MACETAS" Type="Self.MACETAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEMILLA">
+        <PropertyRef Name="id_semilla" />
+      </Principal>
+      <Dependent Role="MACETAS">
+        <PropertyRef Name="id_semilla" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OBTENCION_SEMILLA_FK">
+    <End Role="SEMILLA" Type="Self.SEMILLA" Multiplicity="1" />
+    <End Role="OBTENCION" Type="Self.OBTENCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEMILLA">
+        <PropertyRef Name="id_semilla" />
+      </Principal>
+      <Dependent Role="OBTENCION">
+        <PropertyRef Name="id_semilla" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbb_GudBoxEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="INSTRUCCION" EntityType="Self.INSTRUCCION" />
+    <EntitySet Name="MACETAS" EntityType="Self.MACETAS" />
+    <EntitySet Name="OBTENCION" EntityType="Self.OBTENCION" />
+    <EntitySet Name="SEMILLA" EntityType="Self.SEMILLA" />
+    <AssociationSet Name="INSTRUCCIONES_SEMILLA_FK" Association="Self.INSTRUCCIONES_SEMILLA_FK">
+      <End Role="SEMILLA" EntitySet="SEMILLA" />
+      <End Role="INSTRUCCION" EntitySet="INSTRUCCION" />
+    </AssociationSet>
+    <AssociationSet Name="MACETAS_SEMILLA_FK" Association="Self.MACETAS_SEMILLA_FK">
+      <End Role="SEMILLA" EntitySet="SEMILLA" />
+      <End Role="MACETAS" EntitySet="MACETAS" />
+    </AssociationSet>
+    <AssociationSet Name="OBTENCION_SEMILLA_FK" Association="Self.OBTENCION_SEMILLA_FK">
+      <End Role="SEMILLA" EntitySet="SEMILLA" />
+      <End Role="OBTENCION" EntitySet="OBTENCION" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

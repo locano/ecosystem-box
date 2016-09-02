@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbb_GudBoxModelStoreContainer" CdmEntityContainer="dbb_GudBoxEntities">
+    <EntitySetMapping Name="INSTRUCCION">
+      <EntityTypeMapping TypeName="dbb_GudBoxModel.INSTRUCCION">
+        <MappingFragment StoreEntitySet="INSTRUCCION">
+          <ScalarProperty Name="id_instruccion" ColumnName="id_instruccion" />
+          <ScalarProperty Name="instruccion1" ColumnName="instruccion" />
+          <ScalarProperty Name="id_semilla" ColumnName="id_semilla" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MACETAS">
+      <EntityTypeMapping TypeName="dbb_GudBoxModel.MACETAS">
+        <MappingFragment StoreEntitySet="MACETAS">
+          <ScalarProperty Name="id_macetas" ColumnName="id_macetas" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id_semilla" ColumnName="id_semilla" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OBTENCION">
+      <EntityTypeMapping TypeName="dbb_GudBoxModel.OBTENCION">
+        <MappingFragment StoreEntitySet="OBTENCION">
+          <ScalarProperty Name="id_obtencion" ColumnName="id_obtencion" />
+          <ScalarProperty Name="paso" ColumnName="paso" />
+          <ScalarProperty Name="id_semilla" ColumnName="id_semilla" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEMILLA">
+      <EntityTypeMapping TypeName="dbb_GudBoxModel.SEMILLA">
+        <MappingFragment StoreEntitySet="SEMILLA">
+          <ScalarProperty Name="id_semilla" ColumnName="id_semilla" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="epoca" ColumnName="epoca" />
+          <ScalarProperty Name="tierra" ColumnName="tierra" />
+          <ScalarProperty Name="temp_minima" ColumnName="temp_minima" />
+          <ScalarProperty Name="temp_maxima" ColumnName="temp_maxima" />
+          <ScalarProperty Name="sol" ColumnName="sol" />
+          <ScalarProperty Name="riego" ColumnName="riego" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
