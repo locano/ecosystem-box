@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_menu_profile"
+            android:title="Profile" />
+    </group>
+
+    <item android:title="Ecosystem">
+        <menu>
+            <item
+                android:id="@+id/nav_temperature"
+                android:icon="@drawable/ic_menu_temperature"
+                android:title="Temperature" />
+            <item
+                android:id="@+id/nav_humidity"
+                android:icon="@drawable/ic_menu_humidity"
+                android:title="Humidity" />
+        </menu>
+    </item>
+
+    <item android:title="Seeds">
+        <menu>
+            <item
+                android:id="@+id/nav_all"
+                android:icon="@drawable/ic_menu_all"
+                android:title="All" />
+            <item
+                android:id="@+id/nav_fruits"
+                android:icon="@drawable/ic_menu_fruit"
+                android:title="Fruits" />
+            <item
+                android:id="@+id/nav_vegetables"
+                android:icon="@drawable/ic_menu_vegetables"
+                android:title="Vegetables" />
+        </menu>
+    </item>
+
+</menu>
