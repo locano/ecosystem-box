@@ -17,14 +17,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textStyle="bold"
-            android:textColor="@color/dialogPrimaryText"
+            android:textColor="@color/whitePrimaryText"
             android:text="@string/calories"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/dialogPrimaryText"
+            android:textColor="@color/whitePrimaryText"
             android:text="@string/lorem_ipsum_25"
             style="@style/roboto_regular"
             />
@@ -34,14 +34,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textStyle="bold"
-            android:textColor="@color/dialogPrimaryText"
+            android:textColor="@color/whitePrimaryText"
             android:text="@string/fat"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/dialogPrimaryText"
+            android:textColor="@color/whitePrimaryText"
             android:text="@string/lorem_ipsum_25"
             style="@style/roboto_regular"
             />
@@ -51,14 +51,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textStyle="bold"
-            android:textColor="@color/dialogPrimaryText"
+            android:textColor="@color/whitePrimaryText"
             android:text="@string/protein"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/dialogPrimaryText"
+            android:textColor="@color/whitePrimaryText"
             android:text="@string/lorem_ipsum_25"
             style="@style/roboto_regular"
             />
@@ -68,14 +68,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textStyle="bold"
-            android:textColor="@color/dialogPrimaryText"
+            android:textColor="@color/whitePrimaryText"
             android:text="@string/carbs"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/dialogPrimaryText"
+            android:textColor="@color/whitePrimaryText"
             android:text="@string/lorem_ipsum_25"
             style="@style/roboto_regular"
             />

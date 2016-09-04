@@ -32,6 +32,4 @@
     <style name="roboto_light">
         <item name="android:fontFamily">sans-serif-light></item>
     </style>
-
-
 </resources>
