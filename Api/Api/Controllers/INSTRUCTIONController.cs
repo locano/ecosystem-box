@@ -9,48 +9,47 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Api.Models;
-using System.Runtime.Serialization.Json;
-using System.Web;
+
 namespace Api.Controllers
 {
-    public class SEMILLAController : ApiController
+    public class INSTRUCTIONController : ApiController
     {
         private dbb_GudBoxEntities db = new dbb_GudBoxEntities();
 
-        // GET: api/SEMILLA
-        public IHttpActionResult GetSEMILLA()
+        // GET: api/INSTRUCTIONs
+        public IQueryable<INSTRUCTION> GetINSTRUCTION()
         {
-            return Json(new { nombre = "hola" });
+            return db.INSTRUCTION;
         }
 
-        // GET: api/SEMILLA/5
-        [ResponseType(typeof(SEMILLA))]
-        public IHttpActionResult GetSEMILLA(int id)
+        // GET: api/INSTRUCTIONs/5
+        [ResponseType(typeof(INSTRUCTION))]
+        public IHttpActionResult GetINSTRUCTION(int id)
         {
-            SEMILLA sEMILLA = db.SEMILLA.Find(id);
-            if (sEMILLA == null)
+            INSTRUCTION iNSTRUCTION = db.INSTRUCTION.Find(id);
+            if (iNSTRUCTION == null)
             {
                 return NotFound();
             }
 
-            return Ok(sEMILLA);
+            return Ok(iNSTRUCTION);
         }
 
-        // PUT: api/SEMILLA/5
+        // PUT: api/INSTRUCTIONs/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutSEMILLA(int id, SEMILLA sEMILLA)
+        public IHttpActionResult PutINSTRUCTION(int id, INSTRUCTION iNSTRUCTION)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != sEMILLA.id_semilla)
+            if (id != iNSTRUCTION.id_instruction)
             {
                 return BadRequest();
             }
 
-            db.Entry(sEMILLA).State = EntityState.Modified;
+            db.Entry(iNSTRUCTION).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +57,7 @@ namespace Api.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SEMILLAExists(id))
+                if (!INSTRUCTIONExists(id))
                 {
                     return NotFound();
                 }
@@ -71,16 +70,16 @@ namespace Api.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/SEMILLA
-        [ResponseType(typeof(SEMILLA))]
-        public IHttpActionResult PostSEMILLA(SEMILLA sEMILLA)
+        // POST: api/INSTRUCTIONs
+        [ResponseType(typeof(INSTRUCTION))]
+        public IHttpActionResult PostINSTRUCTION(INSTRUCTION iNSTRUCTION)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.SEMILLA.Add(sEMILLA);
+            db.INSTRUCTION.Add(iNSTRUCTION);
 
             try
             {
@@ -88,7 +87,7 @@ namespace Api.Controllers
             }
             catch (DbUpdateException)
             {
-                if (SEMILLAExists(sEMILLA.id_semilla))
+                if (INSTRUCTIONExists(iNSTRUCTION.id_instruction))
                 {
                     return Conflict();
                 }
@@ -98,23 +97,23 @@ namespace Api.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = sEMILLA.id_semilla }, sEMILLA);
+            return CreatedAtRoute("DefaultApi", new { id = iNSTRUCTION.id_instruction }, iNSTRUCTION);
         }
 
-        // DELETE: api/SEMILLA/5
-        [ResponseType(typeof(SEMILLA))]
-        public IHttpActionResult DeleteSEMILLA(int id)
+        // DELETE: api/INSTRUCTIONs/5
+        [ResponseType(typeof(INSTRUCTION))]
+        public IHttpActionResult DeleteINSTRUCTION(int id)
         {
-            SEMILLA sEMILLA = db.SEMILLA.Find(id);
-            if (sEMILLA == null)
+            INSTRUCTION iNSTRUCTION = db.INSTRUCTION.Find(id);
+            if (iNSTRUCTION == null)
             {
                 return NotFound();
             }
 
-            db.SEMILLA.Remove(sEMILLA);
+            db.INSTRUCTION.Remove(iNSTRUCTION);
             db.SaveChanges();
 
-            return Ok(sEMILLA);
+            return Ok(iNSTRUCTION);
         }
 
         protected override void Dispose(bool disposing)
@@ -126,9 +125,9 @@ namespace Api.Controllers
             base.Dispose(disposing);
         }
 
-        private bool SEMILLAExists(int id)
+        private bool INSTRUCTIONExists(int id)
         {
-            return db.SEMILLA.Count(e => e.id_semilla == id) > 0;
+            return db.INSTRUCTION.Count(e => e.id_instruction == id) > 0;
         }
     }
 }

@@ -12,30 +12,30 @@ namespace Api.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class SEMILLA
+    public partial class SEED
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SEMILLA()
+        public SEED()
         {
-            this.INSTRUCCION = new HashSet<INSTRUCCION>();
-            this.MACETAS = new HashSet<MACETAS>();
-            this.OBTENCION = new HashSet<OBTENCION>();
+            this.COLLECTION = new HashSet<COLLECTION>();
+            this.INSTRUCTION = new HashSet<INSTRUCTION>();
+            this.PLANTPOT = new HashSet<PLANTPOT>();
         }
     
-        public int id_semilla { get; set; }
-        public string nombre { get; set; }
-        public string epoca { get; set; }
-        public string tierra { get; set; }
-        public int temp_minima { get; set; }
-        public int temp_maxima { get; set; }
-        public string sol { get; set; }
-        public string riego { get; set; }
+        public int id_seed { get; set; }
+        public string name { get; set; }
+        public string period { get; set; }
+        public string earth { get; set; }
+        public int temp_min { get; set; }
+        public int temp_max { get; set; }
+        public string sun { get; set; }
+        public string watering { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<INSTRUCCION> INSTRUCCION { get; set; }
+        public virtual ICollection<COLLECTION> COLLECTION { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MACETAS> MACETAS { get; set; }
+        public virtual ICollection<INSTRUCTION> INSTRUCTION { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OBTENCION> OBTENCION { get; set; }
+        public virtual ICollection<PLANTPOT> PLANTPOT { get; set; }
     }
 }

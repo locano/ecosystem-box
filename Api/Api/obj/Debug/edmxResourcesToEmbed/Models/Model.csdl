@@ -1,100 +1,100 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="dbb_GudBoxModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="INSTRUCCION">
+  <EntityContainer Name="dbb_GudBoxEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="COLLECTION" EntityType="dbb_GudBoxModel.COLLECTION" />
+    <EntitySet Name="INSTRUCTION" EntityType="dbb_GudBoxModel.INSTRUCTION" />
+    <EntitySet Name="PLANTPOT" EntityType="dbb_GudBoxModel.PLANTPOT" />
+    <EntitySet Name="SEED" EntityType="dbb_GudBoxModel.SEED" />
+    <AssociationSet Name="OBTENCION_SEMILLA_FK" Association="dbb_GudBoxModel.OBTENCION_SEMILLA_FK">
+      <End Role="SEED" EntitySet="SEED" />
+      <End Role="COLLECTION" EntitySet="COLLECTION" />
+    </AssociationSet>
+    <AssociationSet Name="INSTRUCCIONES_SEMILLA_FK" Association="dbb_GudBoxModel.INSTRUCCIONES_SEMILLA_FK">
+      <End Role="SEED" EntitySet="SEED" />
+      <End Role="INSTRUCTION" EntitySet="INSTRUCTION" />
+    </AssociationSet>
+    <AssociationSet Name="MACETAS_SEMILLA_FK" Association="dbb_GudBoxModel.MACETAS_SEMILLA_FK">
+      <End Role="SEED" EntitySet="SEED" />
+      <End Role="PLANTPOT" EntitySet="PLANTPOT" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="COLLECTION">
     <Key>
-      <PropertyRef Name="id_instruccion" />
+      <PropertyRef Name="id_collection" />
     </Key>
-    <Property Name="id_instruccion" Type="Int32" Nullable="false" />
-    <Property Name="instruccion1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="id_semilla" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="SEMILLA" Relationship="Self.INSTRUCCIONES_SEMILLA_FK" FromRole="INSTRUCCION" ToRole="SEMILLA" />
+    <Property Name="id_collection" Type="Int32" Nullable="false" />
+    <Property Name="step" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="id_seed" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SEED" Relationship="dbb_GudBoxModel.OBTENCION_SEMILLA_FK" FromRole="COLLECTION" ToRole="SEED" />
   </EntityType>
-  <EntityType Name="MACETAS">
+  <EntityType Name="INSTRUCTION">
     <Key>
-      <PropertyRef Name="id_macetas" />
+      <PropertyRef Name="id_instruction" />
     </Key>
-    <Property Name="id_macetas" Type="Int32" Nullable="false" />
-    <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="id_semilla" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="SEMILLA" Relationship="Self.MACETAS_SEMILLA_FK" FromRole="MACETAS" ToRole="SEMILLA" />
+    <Property Name="id_instruction" Type="Int32" Nullable="false" />
+    <Property Name="instruction" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="id_seed" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SEED" Relationship="dbb_GudBoxModel.INSTRUCCIONES_SEMILLA_FK" FromRole="INSTRUCTION" ToRole="SEED" />
   </EntityType>
-  <EntityType Name="OBTENCION">
+  <EntityType Name="PLANTPOT">
     <Key>
-      <PropertyRef Name="id_obtencion" />
+      <PropertyRef Name="id_plantpot" />
     </Key>
-    <Property Name="id_obtencion" Type="Int32" Nullable="false" />
-    <Property Name="paso" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="id_semilla" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="SEMILLA" Relationship="Self.OBTENCION_SEMILLA_FK" FromRole="OBTENCION" ToRole="SEMILLA" />
+    <Property Name="id_plantpot" Type="Int32" Nullable="false" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="id_seed" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SEED" Relationship="dbb_GudBoxModel.MACETAS_SEMILLA_FK" FromRole="PLANTPOT" ToRole="SEED" />
   </EntityType>
-  <EntityType Name="SEMILLA">
+  <EntityType Name="SEED">
     <Key>
-      <PropertyRef Name="id_semilla" />
+      <PropertyRef Name="id_seed" />
     </Key>
-    <Property Name="id_semilla" Type="Int32" Nullable="false" />
-    <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="epoca" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="tierra" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="temp_minima" Type="Int32" Nullable="false" />
-    <Property Name="temp_maxima" Type="Int32" Nullable="false" />
-    <Property Name="sol" Type="String" MaxLength="350" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="riego" Type="String" MaxLength="350" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="INSTRUCCION" Relationship="Self.INSTRUCCIONES_SEMILLA_FK" FromRole="SEMILLA" ToRole="INSTRUCCION" />
-    <NavigationProperty Name="MACETAS" Relationship="Self.MACETAS_SEMILLA_FK" FromRole="SEMILLA" ToRole="MACETAS" />
-    <NavigationProperty Name="OBTENCION" Relationship="Self.OBTENCION_SEMILLA_FK" FromRole="SEMILLA" ToRole="OBTENCION" />
+    <Property Name="id_seed" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="period" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="earth" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="temp_min" Type="Int32" Nullable="false" />
+    <Property Name="temp_max" Type="Int32" Nullable="false" />
+    <Property Name="sun" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="false" />
+    <Property Name="watering" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="COLLECTION" Relationship="dbb_GudBoxModel.OBTENCION_SEMILLA_FK" FromRole="SEED" ToRole="COLLECTION" />
+    <NavigationProperty Name="INSTRUCTION" Relationship="dbb_GudBoxModel.INSTRUCCIONES_SEMILLA_FK" FromRole="SEED" ToRole="INSTRUCTION" />
+    <NavigationProperty Name="PLANTPOT" Relationship="dbb_GudBoxModel.MACETAS_SEMILLA_FK" FromRole="SEED" ToRole="PLANTPOT" />
   </EntityType>
-  <Association Name="INSTRUCCIONES_SEMILLA_FK">
-    <End Role="SEMILLA" Type="Self.SEMILLA" Multiplicity="1" />
-    <End Role="INSTRUCCION" Type="Self.INSTRUCCION" Multiplicity="*" />
+  <Association Name="OBTENCION_SEMILLA_FK">
+    <End Type="dbb_GudBoxModel.SEED" Role="SEED" Multiplicity="1" />
+    <End Type="dbb_GudBoxModel.COLLECTION" Role="COLLECTION" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="SEMILLA">
-        <PropertyRef Name="id_semilla" />
+      <Principal Role="SEED">
+        <PropertyRef Name="id_seed" />
       </Principal>
-      <Dependent Role="INSTRUCCION">
-        <PropertyRef Name="id_semilla" />
+      <Dependent Role="COLLECTION">
+        <PropertyRef Name="id_seed" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="INSTRUCCIONES_SEMILLA_FK">
+    <End Type="dbb_GudBoxModel.SEED" Role="SEED" Multiplicity="1" />
+    <End Type="dbb_GudBoxModel.INSTRUCTION" Role="INSTRUCTION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEED">
+        <PropertyRef Name="id_seed" />
+      </Principal>
+      <Dependent Role="INSTRUCTION">
+        <PropertyRef Name="id_seed" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="MACETAS_SEMILLA_FK">
-    <End Role="SEMILLA" Type="Self.SEMILLA" Multiplicity="1" />
-    <End Role="MACETAS" Type="Self.MACETAS" Multiplicity="*" />
+    <End Type="dbb_GudBoxModel.SEED" Role="SEED" Multiplicity="1" />
+    <End Type="dbb_GudBoxModel.PLANTPOT" Role="PLANTPOT" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="SEMILLA">
-        <PropertyRef Name="id_semilla" />
+      <Principal Role="SEED">
+        <PropertyRef Name="id_seed" />
       </Principal>
-      <Dependent Role="MACETAS">
-        <PropertyRef Name="id_semilla" />
+      <Dependent Role="PLANTPOT">
+        <PropertyRef Name="id_seed" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="OBTENCION_SEMILLA_FK">
-    <End Role="SEMILLA" Type="Self.SEMILLA" Multiplicity="1" />
-    <End Role="OBTENCION" Type="Self.OBTENCION" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SEMILLA">
-        <PropertyRef Name="id_semilla" />
-      </Principal>
-      <Dependent Role="OBTENCION">
-        <PropertyRef Name="id_semilla" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityContainer Name="dbb_GudBoxEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="INSTRUCCION" EntityType="Self.INSTRUCCION" />
-    <EntitySet Name="MACETAS" EntityType="Self.MACETAS" />
-    <EntitySet Name="OBTENCION" EntityType="Self.OBTENCION" />
-    <EntitySet Name="SEMILLA" EntityType="Self.SEMILLA" />
-    <AssociationSet Name="INSTRUCCIONES_SEMILLA_FK" Association="Self.INSTRUCCIONES_SEMILLA_FK">
-      <End Role="SEMILLA" EntitySet="SEMILLA" />
-      <End Role="INSTRUCCION" EntitySet="INSTRUCCION" />
-    </AssociationSet>
-    <AssociationSet Name="MACETAS_SEMILLA_FK" Association="Self.MACETAS_SEMILLA_FK">
-      <End Role="SEMILLA" EntitySet="SEMILLA" />
-      <End Role="MACETAS" EntitySet="MACETAS" />
-    </AssociationSet>
-    <AssociationSet Name="OBTENCION_SEMILLA_FK" Association="Self.OBTENCION_SEMILLA_FK">
-      <End Role="SEMILLA" EntitySet="SEMILLA" />
-      <End Role="OBTENCION" EntitySet="OBTENCION" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>

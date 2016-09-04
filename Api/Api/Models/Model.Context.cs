@@ -25,9 +25,9 @@ namespace Api.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<INSTRUCCION> INSTRUCCION { get; set; }
-        public virtual DbSet<MACETAS> MACETAS { get; set; }
-        public virtual DbSet<OBTENCION> OBTENCION { get; set; }
-        public virtual DbSet<SEMILLA> SEMILLA { get; set; }
+        public virtual DbSet<COLLECTION> COLLECTION { get; set; }
+        public virtual DbSet<INSTRUCTION> INSTRUCTION { get; set; }
+        public virtual DbSet<PLANTPOT> PLANTPOT { get; set; }
+        public virtual DbSet<SEED> SEED { get; set; }
     }
 }

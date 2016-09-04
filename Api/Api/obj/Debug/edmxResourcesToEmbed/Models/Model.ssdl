@@ -1,94 +1,94 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="dbb_GudBoxModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="INSTRUCCION">
+  <EntityType Name="COLLECTION">
     <Key>
-      <PropertyRef Name="id_instruccion" />
+      <PropertyRef Name="id_collection" />
     </Key>
-    <Property Name="id_instruccion" Type="int" Nullable="false" />
-    <Property Name="instruccion" Type="varchar" MaxLength="300" Nullable="false" />
-    <Property Name="id_semilla" Type="int" Nullable="false" />
+    <Property Name="id_collection" Type="int" Nullable="false" />
+    <Property Name="step" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="id_seed" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="MACETAS">
+  <EntityType Name="INSTRUCTION">
     <Key>
-      <PropertyRef Name="id_macetas" />
+      <PropertyRef Name="id_instruction" />
     </Key>
-    <Property Name="id_macetas" Type="int" Nullable="false" />
-    <Property Name="descripcion" Type="varchar" MaxLength="300" Nullable="false" />
-    <Property Name="id_semilla" Type="int" Nullable="false" />
+    <Property Name="id_instruction" Type="int" Nullable="false" />
+    <Property Name="instruction" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="id_seed" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="OBTENCION">
+  <EntityType Name="PLANTPOT">
     <Key>
-      <PropertyRef Name="id_obtencion" />
+      <PropertyRef Name="id_plantpot" />
     </Key>
-    <Property Name="id_obtencion" Type="int" Nullable="false" />
-    <Property Name="paso" Type="varchar" MaxLength="300" Nullable="false" />
-    <Property Name="id_semilla" Type="int" Nullable="false" />
+    <Property Name="id_plantpot" Type="int" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="id_seed" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="SEMILLA">
+  <EntityType Name="SEED">
     <Key>
-      <PropertyRef Name="id_semilla" />
+      <PropertyRef Name="id_seed" />
     </Key>
-    <Property Name="id_semilla" Type="int" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="epoca" Type="varchar" MaxLength="200" Nullable="false" />
-    <Property Name="tierra" Type="varchar" MaxLength="300" Nullable="false" />
-    <Property Name="temp_minima" Type="int" Nullable="false" />
-    <Property Name="temp_maxima" Type="int" Nullable="false" />
-    <Property Name="sol" Type="varchar" MaxLength="350" Nullable="false" />
-    <Property Name="riego" Type="varchar" MaxLength="350" Nullable="false" />
+    <Property Name="id_seed" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="period" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="earth" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="temp_min" Type="int" Nullable="false" />
+    <Property Name="temp_max" Type="int" Nullable="false" />
+    <Property Name="sun" Type="varchar" MaxLength="350" Nullable="false" />
+    <Property Name="watering" Type="varchar" MaxLength="350" Nullable="false" />
   </EntityType>
   <Association Name="INSTRUCCIONES_SEMILLA_FK">
-    <End Role="SEMILLA" Type="Self.SEMILLA" Multiplicity="1" />
-    <End Role="INSTRUCCION" Type="Self.INSTRUCCION" Multiplicity="*" />
+    <End Role="SEED" Type="Self.SEED" Multiplicity="1" />
+    <End Role="INSTRUCTION" Type="Self.INSTRUCTION" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="SEMILLA">
-        <PropertyRef Name="id_semilla" />
+      <Principal Role="SEED">
+        <PropertyRef Name="id_seed" />
       </Principal>
-      <Dependent Role="INSTRUCCION">
-        <PropertyRef Name="id_semilla" />
+      <Dependent Role="INSTRUCTION">
+        <PropertyRef Name="id_seed" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="MACETAS_SEMILLA_FK">
-    <End Role="SEMILLA" Type="Self.SEMILLA" Multiplicity="1" />
-    <End Role="MACETAS" Type="Self.MACETAS" Multiplicity="*" />
+    <End Role="SEED" Type="Self.SEED" Multiplicity="1" />
+    <End Role="PLANTPOT" Type="Self.PLANTPOT" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="SEMILLA">
-        <PropertyRef Name="id_semilla" />
+      <Principal Role="SEED">
+        <PropertyRef Name="id_seed" />
       </Principal>
-      <Dependent Role="MACETAS">
-        <PropertyRef Name="id_semilla" />
+      <Dependent Role="PLANTPOT">
+        <PropertyRef Name="id_seed" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="OBTENCION_SEMILLA_FK">
-    <End Role="SEMILLA" Type="Self.SEMILLA" Multiplicity="1" />
-    <End Role="OBTENCION" Type="Self.OBTENCION" Multiplicity="*" />
+    <End Role="SEED" Type="Self.SEED" Multiplicity="1" />
+    <End Role="COLLECTION" Type="Self.COLLECTION" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="SEMILLA">
-        <PropertyRef Name="id_semilla" />
+      <Principal Role="SEED">
+        <PropertyRef Name="id_seed" />
       </Principal>
-      <Dependent Role="OBTENCION">
-        <PropertyRef Name="id_semilla" />
+      <Dependent Role="COLLECTION">
+        <PropertyRef Name="id_seed" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="dbb_GudBoxModelStoreContainer">
-    <EntitySet Name="INSTRUCCION" EntityType="Self.INSTRUCCION" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="MACETAS" EntityType="Self.MACETAS" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="OBTENCION" EntityType="Self.OBTENCION" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="SEMILLA" EntityType="Self.SEMILLA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COLLECTION" EntityType="Self.COLLECTION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="INSTRUCTION" EntityType="Self.INSTRUCTION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PLANTPOT" EntityType="Self.PLANTPOT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SEED" EntityType="Self.SEED" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="INSTRUCCIONES_SEMILLA_FK" Association="Self.INSTRUCCIONES_SEMILLA_FK">
-      <End Role="SEMILLA" EntitySet="SEMILLA" />
-      <End Role="INSTRUCCION" EntitySet="INSTRUCCION" />
+      <End Role="SEED" EntitySet="SEED" />
+      <End Role="INSTRUCTION" EntitySet="INSTRUCTION" />
     </AssociationSet>
     <AssociationSet Name="MACETAS_SEMILLA_FK" Association="Self.MACETAS_SEMILLA_FK">
-      <End Role="SEMILLA" EntitySet="SEMILLA" />
-      <End Role="MACETAS" EntitySet="MACETAS" />
+      <End Role="SEED" EntitySet="SEED" />
+      <End Role="PLANTPOT" EntitySet="PLANTPOT" />
     </AssociationSet>
     <AssociationSet Name="OBTENCION_SEMILLA_FK" Association="Self.OBTENCION_SEMILLA_FK">
-      <End Role="SEMILLA" EntitySet="SEMILLA" />
-      <End Role="OBTENCION" EntitySet="OBTENCION" />
+      <End Role="SEED" EntitySet="SEED" />
+      <End Role="COLLECTION" EntitySet="COLLECTION" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

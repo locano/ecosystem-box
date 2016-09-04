@@ -12,12 +12,12 @@ namespace Api.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class MACETAS
+    public partial class INSTRUCTION
     {
-        public int id_macetas { get; set; }
-        public string descripcion { get; set; }
-        public int id_semilla { get; set; }
+        public int id_instruction { get; set; }
+        public string instruction { get; set; }
+        public int id_seed { get; set; }
     
-        public virtual SEMILLA SEMILLA { get; set; }
+        public virtual SEED SEED { get; set; }
     }
 }
