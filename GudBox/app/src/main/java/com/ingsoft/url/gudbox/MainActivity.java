@@ -2,13 +2,6 @@ package com.ingsoft.url.gudbox;
 
 import android.content.Intent;
 import android.os.Bundle;
-<<<<<<< HEAD
-import android.support.v7.app.AlertDialog;
-import android.view.LayoutInflater;
-=======
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
->>>>>>> user_interface
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,10 +13,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ListView;
-<<<<<<< HEAD
-=======
-import android.widget.Toast;
->>>>>>> user_interface
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -98,11 +87,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> user_interface
         CustomList customList = new CustomList(this, names, desc, imageId);
         listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(customList);
@@ -113,11 +98,6 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent(MainActivity.this, seedInfo.class);
                 intent.putExtra("itemName", names[i]);
                 startActivity(intent);
-<<<<<<< HEAD
-                //builder.show();
-
-=======
->>>>>>> user_interface
             }
         });
 
