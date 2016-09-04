@@ -11,6 +11,22 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    sourceSets{
+        main{
+            res.srcDirs = [
+                    'src/main/res',
+                    'src/main/res/drawable/seeds',
+                    'src/main/res/drawable/seedsInfo',
+                    'src/main/res/drawable/navDrawer',
+                    'src/main/res/drawable',
+                    'src/main/res/layout/SeedsActivities',
+                    'src/main/res/layout/NavigationDrawer',
+                    'src/main/res/layout'
+            ]
+        }
+    }
+
+
     buildTypes {
         release {
             minifyEnabled false

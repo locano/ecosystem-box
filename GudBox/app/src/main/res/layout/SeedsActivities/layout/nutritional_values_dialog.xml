@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/dialogInfo_leftPadding"
+        android:paddingTop="@dimen/dialogInfo_upPadding"
+        android:paddingRight="@dimen/dialogInfo_leftPadding"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/dialogPrimaryText"
+            android:text="@string/calories"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dialogPrimaryText"
+            android:text="@string/lorem_ipsum_25"
+            style="@style/roboto_regular"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/dialogPrimaryText"
+            android:text="@string/fat"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dialogPrimaryText"
+            android:text="@string/lorem_ipsum_25"
+            style="@style/roboto_regular"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/dialogPrimaryText"
+            android:text="@string/protein"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dialogPrimaryText"
+            android:text="@string/lorem_ipsum_25"
+            style="@style/roboto_regular"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/dialogPrimaryText"
+            android:text="@string/carbs"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dialogPrimaryText"
+            android:text="@string/lorem_ipsum_25"
+            style="@style/roboto_regular"
+            />
+
+
+    </LinearLayout>
+</ScrollView>

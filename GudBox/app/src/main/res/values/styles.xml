@@ -17,4 +17,21 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Used for the buttons -->
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">@color/whitePrimaryText</item>
+        <!-- Used for the background -->
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="roboto_regular">
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+    <style name="roboto_light">
+        <item name="android:fontFamily">sans-serif-light></item>
+    </style>
+
+
 </resources>
