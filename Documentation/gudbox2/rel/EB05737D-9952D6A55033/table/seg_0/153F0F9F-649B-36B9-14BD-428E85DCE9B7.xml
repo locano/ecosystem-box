@@ -1,0 +1,214 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="153F0F9F-649B-36B9-14BD-428E85DCE9B7" name="SEEDS">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:23:15 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="6837ECE8-1408-C278-B157-959D841E8638">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:27:06 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="96A0D33D-3E3F-BA55-F0EB-C45591E6EF05">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:27:06 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="needs_hotbed" id="989ABC64-0751-2F44-4327-B98388051D6C">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:27:06 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="spring" id="4A8C36AA-7B94-DC98-BEB0-8745CE91E6A6">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:27:06 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="summer" id="D827B6F7-DA04-7AAE-5EBE-05E5905681ED">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:27:06 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="autumn" id="C0DE0C7C-24A1-E257-5BFC-B70934428110">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:27:06 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="winter" id="2AF38AE5-9744-E41F-C932-F7E080B7131E">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:27:06 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="min_temp" id="C93477DB-0BF7-1F4E-73B2-F1035C7F032F">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:28:07 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="max_temp" id="F4F7E72B-D1E1-2474-1707-4322129E27D3">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:28:07 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="days" id="21E60487-7958-9E4A-808E-3B2236320BCA">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:28:07 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="min_depth" id="F2C797E6-2F7F-8A10-A41C-5CC9DF3838A8">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:28:07 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="min_radius" id="580E1B95-F411-B0D1-E1F4-BC4BEEA608BE">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:28:07 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="min_radius_line" id="880F6E19-D0C2-D1B8-5B92-A4F4B486BF96">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:32:26 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dirt" id="D152C4A0-5DA2-D988-D129-2845F4E1A6EE">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:32:26 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ph" id="734161F7-DEC3-3C17-6B54-E3A84882742F">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:32:26 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="sun_hours" id="052A53B9-3F93-A73E-1C6E-5D83FBA4D68B">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:32:26 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="water_level" id="346C961C-A513-E0D2-ED5D-EADA918A7418">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:32:26 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="germination" id="B367B637-714C-CB55-8CBE-9C90217036B8">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:32:26 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000</dataTypeSize>
+<ownDataTypeParameters>2000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2F09B483-7E46-EAAB-4218-33E867F3A79A" name="SEEDS_PK">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:27:06 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6837ECE8-1408-C278-B157-959D841E8638"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

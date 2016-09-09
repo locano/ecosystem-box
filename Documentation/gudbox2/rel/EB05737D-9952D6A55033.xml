@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="Relational_1" id="EB05737D-20B0-377E-3B4C-9952D6A55033" mainViewID="C0D323CB-F5D5-9486-1780-96E948EA30F5">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:22:38 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>32076570-2523-435C-2E92-BF29817DFF70</selectedRDBMSSite>
+</relationalModel>

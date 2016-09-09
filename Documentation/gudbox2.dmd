@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="gudbox2" id="E19C2927-E5CC-4FBB-9ADF-2CFB38326F84" version="3.5">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:06:31 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>E19C2927-E5CC-4FBB-9ADF-2CFB38326F84</designId>
+</OSDM_Design>

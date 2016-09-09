@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="CBA8F4DD-093D-34E1-9AE2-DC35E74C7B52" mainViewID="82837155-D02E-6BAA-E432-2D8B2B39D646">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:06:32 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

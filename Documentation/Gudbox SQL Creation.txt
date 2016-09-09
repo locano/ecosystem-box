@@ -1,0 +1,22 @@
+CREATE TABLE SEEDS
+  (
+    id              INTEGER NOT NULL ,
+    name            VARCHAR (50) NOT NULL ,
+    needs_hotbed    CHAR (1) NOT NULL ,
+    spring          CHAR (1) NOT NULL ,
+    summer          CHAR (1) NOT NULL ,
+    autumn          CHAR (1) NOT NULL ,
+    winter          CHAR (1) NOT NULL ,
+    min_temp        INTEGER NOT NULL ,
+    max_temp        INTEGER NOT NULL ,
+    days            INTEGER NOT NULL ,
+    min_depth       INTEGER NOT NULL ,
+    min_radius      INTEGER NOT NULL ,
+    min_radius_line INTEGER NOT NULL ,
+    dirt            VARCHAR (15) NOT NULL ,
+    ph              DECIMAL (3, 1) NOT NULL ,
+    sun_hours       INTEGER NOT NULL ,
+    water_level     INTEGER NOT NULL ,
+    germination     VARCHAR (2000) NOT NULL
+  ) ;
+ALTER TABLE SEEDS ADD CONSTRAINT SEEDS_PK PRIMARY KEY ( id ) ;
