@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    card_view:cardCornerRadius="4dp">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <!-- Season calendar and icon -->
+        <LinearLayout android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/cards_child_margin"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Season calendar"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/colorPrimary"
+                android:layout_weight="3"
+                android:textSize="18sp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_help_green"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <!-- January to June -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/cards_child_vertical_margin"
+            android:layout_marginLeft="@dimen/cards_child_margin"
+            android:layout_marginRight="@dimen/cards_child_margin">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/grey_square"
+                android:gravity="center"
+                android:text="JAN"
+                android:textColor="@color/whitePrimaryText"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/grey_square"
+                android:gravity="center"
+                android:text="FEB"
+                android:textColor="@color/whitePrimaryText"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/green_square"
+                android:gravity="center"
+                android:text="MAR"
+                android:textColor="@color/whitePrimaryText"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/green_square"
+                android:gravity="center"
+                android:text="APR"
+                android:textColor="@color/whitePrimaryText"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/green_square"
+                android:gravity="center"
+                android:text="MAY"
+                android:textColor="@color/whitePrimaryText"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/grey_square"
+                android:gravity="center"
+                android:text="JUN"
+                android:textColor="@color/whitePrimaryText"
+                android:textSize="14sp"
+                />
+        </LinearLayout>
+
+        <!-- July to December -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/cards_child_vertical_margin"
+            android:layout_marginLeft="@dimen/cards_child_margin"
+            android:layout_marginRight="@dimen/cards_child_margin">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/grey_square"
+                android:gravity="center"
+                android:text="JUL"
+                android:textColor="@color/whitePrimaryText"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/grey_square"
+                android:gravity="center"
+                android:text="AUG"
+                android:textColor="@color/whitePrimaryText"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/grey_square"
+                android:gravity="center"
+                android:text="SEP"
+                android:textColor="@color/whitePrimaryText"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/grey_square"
+                android:gravity="center"
+                android:text="OCT"
+                android:textColor="@color/whitePrimaryText"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/grey_square"
+                android:gravity="center"
+                android:text="NOV"
+                android:textColor="@color/whitePrimaryText"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/grey_square"
+                android:gravity="center"
+                android:text="DEC"
+                android:textColor="@color/whitePrimaryText"
+                android:textSize="14sp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

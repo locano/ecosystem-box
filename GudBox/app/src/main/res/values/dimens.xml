@@ -10,4 +10,8 @@
     <!-- Dialog info -->
     <dimen name="dialogInfo_leftPadding">25dp</dimen>
     <dimen name="dialogInfo_upPadding">20dp</dimen>
+
+    <!-- Cards Margins -->
+    <dimen name="cards_child_margin">30dp</dimen>
+    <dimen name="cards_child_vertical_margin">16dp</dimen>
 </resources>
