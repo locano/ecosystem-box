@@ -8,10 +8,125 @@
     tools:context="com.ingsoft.url.gudbox.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/parentLayout"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="7dp">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/tile_size"
+                    android:layout_height="@dimen/tile_size"
+                    android:background="@color/palettePink" >
+
+                    <TextView
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        android:textColor="@color/whitePrimaryText"
+                        android:background="@color/blackSemiTransparent"
+                        android:text="Temperature" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="@dimen/tile_size"
+                    android:layout_height="@dimen/tile_size"
+                    android:background="@color/paletteBlue"
+                    android:layout_marginLeft="11dp" >
+
+                    <TextView
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        android:textColor="@color/whitePrimaryText"
+                        android:background="@color/blackSemiTransparent"
+                        android:text="Humidity" />
+                </RelativeLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp" >
+
+                <RelativeLayout
+                    android:layout_width="@dimen/tile_size"
+                    android:layout_height="@dimen/tile_size"
+                    android:background="@color/paletteAmber">
+
+                    <TextView
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        android:textColor="@color/whitePrimaryText"
+                        android:background="@color/blackSemiTransparent"
+                        android:text="Luminosity" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="@dimen/tile_size"
+                    android:layout_height="@dimen/tile_size"
+                    android:background="@color/paletteBlueGray"
+                    android:layout_marginLeft="11dp">
+
+                    <TextView
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:textSize="20sp"
+                        android:textColor="@color/whitePrimaryText"
+                        android:background="@color/blackSemiTransparent"
+                        android:text="Ventilation" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="@dimen/tile_size"
+                android:layout_height="@dimen/tile_size"
+                android:background="@color/paletteTeal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="@color/whitePrimaryText"
+                    android:background="@color/blackSemiTransparent"
+                    android:text="Seeds" />
+            </RelativeLayout>
+
+    ¿
+        </LinearLayout>
+    </ScrollView>
+
+    <!--<ListView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/listView"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true" />-->
 </RelativeLayout>

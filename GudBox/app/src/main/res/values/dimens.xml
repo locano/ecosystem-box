@@ -14,4 +14,7 @@
     <!-- Cards Margins -->
     <dimen name="cards_child_margin">30dp</dimen>
     <dimen name="cards_child_vertical_margin">16dp</dimen>
+
+    <!-- Menu tiles -->
+    <dimen name="tile_size">190dp</dimen>
 </resources>
