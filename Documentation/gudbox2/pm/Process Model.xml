@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="7E35D246-D28F-2406-6640-6C651B2FCBCD">
+<createdBy>grand</createdBy>
+<createdTime>2016-09-09 13:06:33 UTC</createdTime>
+<ownerDesignName>gudbox2</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</ProcessModel>

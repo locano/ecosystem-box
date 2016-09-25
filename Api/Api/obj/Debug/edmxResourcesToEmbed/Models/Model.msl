@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbb_GudBoxModelStoreContainer" CdmEntityContainer="dbb_GudBoxEntities">
+    <EntitySetMapping Name="COLLECTION">
+      <EntityTypeMapping TypeName="dbb_GudBoxModel.COLLECTION">
+        <MappingFragment StoreEntitySet="COLLECTION">
+          <ScalarProperty Name="id_seed" ColumnName="id_seed" />
+          <ScalarProperty Name="step" ColumnName="step" />
+          <ScalarProperty Name="id_collection" ColumnName="id_collection" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INSTRUCTION">
+      <EntityTypeMapping TypeName="dbb_GudBoxModel.INSTRUCTION">
+        <MappingFragment StoreEntitySet="INSTRUCTION">
+          <ScalarProperty Name="id_seed" ColumnName="id_seed" />
+          <ScalarProperty Name="instruction" ColumnName="instruction" />
+          <ScalarProperty Name="id_instruction" ColumnName="id_instruction" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PLANTPOT">
+      <EntityTypeMapping TypeName="dbb_GudBoxModel.PLANTPOT">
+        <MappingFragment StoreEntitySet="PLANTPOT">
+          <ScalarProperty Name="id_seed" ColumnName="id_seed" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id_plantpot" ColumnName="id_plantpot" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEED">
+      <EntityTypeMapping TypeName="dbb_GudBoxModel.SEED">
+        <MappingFragment StoreEntitySet="SEED">
+          <ScalarProperty Name="watering" ColumnName="watering" />
+          <ScalarProperty Name="sun" ColumnName="sun" />
+          <ScalarProperty Name="temp_max" ColumnName="temp_max" />
+          <ScalarProperty Name="temp_min" ColumnName="temp_min" />
+          <ScalarProperty Name="earth" ColumnName="earth" />
+          <ScalarProperty Name="period" ColumnName="period" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id_seed" ColumnName="id_seed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

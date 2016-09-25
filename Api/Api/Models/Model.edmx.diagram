@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="056f40fd2afb4690994d27b2c866eb73" Name="Diagram1">
+        <EntityTypeShape EntityType="dbb_GudBoxModel.COLLECTION" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="dbb_GudBoxModel.INSTRUCTION" Width="1.5" PointX="3" PointY="6.25" />
+        <EntityTypeShape EntityType="dbb_GudBoxModel.PLANTPOT" Width="1.5" PointX="3" PointY="3.75" />
+        <EntityTypeShape EntityType="dbb_GudBoxModel.SEED" Width="1.5" PointX="0.75" PointY="3" />
+        <AssociationConnector Association="dbb_GudBoxModel.OBTENCION_SEMILLA_FK" />
+        <AssociationConnector Association="dbb_GudBoxModel.INSTRUCCIONES_SEMILLA_FK" />
+        <AssociationConnector Association="dbb_GudBoxModel.MACETAS_SEMILLA_FK" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
