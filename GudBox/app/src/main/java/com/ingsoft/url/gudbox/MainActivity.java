@@ -1,7 +1,11 @@
 package com.ingsoft.url.gudbox;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,7 +16,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import java.io.Console;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -62,8 +71,23 @@ public class MainActivity extends AppCompatActivity
             R.drawable.ic_grapes
     };
 
+    private String tilesNames[] = {
+            "Temperature",
+            "Humidity",
+            "Brightness",
+            "Seeds"
+    };
+
+    private Integer tilesColors[] = {
+            R.color.paletteAmber,
+            R.color.paletteBlue,
+            R.color.paletteTeal,
+            R.color.paletteRed
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -88,18 +112,19 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        CustomList customList = new CustomList(this, names, desc, imageId);
-        listView = (ListView) findViewById(R.id.listView);
-        listView.setAdapter(customList);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l){
-                Intent intent = new Intent(MainActivity.this, seedInfo.class);
-                intent.putExtra("itemName", names[i]);
-                startActivity(intent);
-            }
-        });
+//        CustomList customList = new CustomList(this, names, desc, imageId);
+//        listView = (ListView) findViewById(R.id.listView);
+//        listView.setAdapter(customList);
+//
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l){
+//                Intent intent = new Intent(MainActivity.this, seedInfo.class);
+//                intent.putExtra("itemName", names[i]);
+//                startActivity(intent);
+//            }
+//        });
 
     }
 

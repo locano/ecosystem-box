@@ -11,4 +11,14 @@
     <color name="darkGray">#9E9E9E</color>
     <color name="lightGreen">#8BC34A</color>
     <color name="darkGreen">#689F38</color>
+    <color name="whiteSemiTransparent">#C0FFFFFF</color>
+    <color name="blackSemiTransparent">#33FFFFFF</color>
+
+    <!-- Material Palette Colors -->
+    <color name="paletteRed">#F44336</color>
+    <color name="paletteBlue">#448Aff</color>
+    <color name="paletteTeal">#009688</color>
+    <color name="paletteAmber">#FFC107</color>
+    <color name="palettePink">#E91E63</color>
+    <color name="paletteBlueGray">#607D8B</color>
 </resources>
