@@ -111,6 +111,9 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        /* uncomment this to try API connection */
+        //_API_Connection api =  new _API_Connection( "api/GetSeeds");
+        //api.execute();
 
 
 //        CustomList customList = new CustomList(this, names, desc, imageId);
