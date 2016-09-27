@@ -24,7 +24,7 @@ public class _API_Connection extends AsyncTask<Void, Void, String> {
 
     /***
      * API's constructor; setting url
-     * @param url
+     * @param url (String) HTTP action path
      */
     public _API_Connection(String url){
         this.main_URL += url;
@@ -32,8 +32,8 @@ public class _API_Connection extends AsyncTask<Void, Void, String> {
 
     /***
      * Thread main execution
-     * @param params
-     * @return
+     * @param params (String) use for http request
+     * @return (String) retrieve body request
      */
     @Override
     protected String doInBackground(Void... params){
@@ -42,7 +42,7 @@ public class _API_Connection extends AsyncTask<Void, Void, String> {
 
     /***
      * API connection method
-     * @return flag
+     * @return flag (String) retrieve body request
      */
     public String connect(){
         /* Local variables */
@@ -67,8 +67,8 @@ public class _API_Connection extends AsyncTask<Void, Void, String> {
 
     /***
      * Allow us to convert from json to string object
-     * @param is
-     * @return
+     * @param is (InputStream) Input from http request
+     * @return flag (String) object in string format
      * @throws IOException
      */
     public String jsonToString(InputStream is) throws IOException {
