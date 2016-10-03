@@ -1,12 +1,8 @@
 package com.ingsoft.url.gudbox;
 
-import android.content.Intent;
-import android.content.res.Configuration;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,61 +11,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.AdapterView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-
-import java.io.Console;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private ListView listView;
-    private String names[] = {
-            "Strawberry",
-            "Carrot",
-            "Banana",
-            "Watermelon",
-            "Pear",
-            "Lemon",
-            "Chili",
-            "Apple",
-            "Orange",
-            "Tomato",
-            "Pumpkin",
-            "Grapes"
-    };
-    private String desc[] = {
-            "January - June",
-            "April - January",
-            "All year",
-            "May - September",
-            "June - December",
-            "All year",
-            "September - December",
-            "July - February",
-            "October - May",
-            "April - December",
-            "October - March",
-            "August - December"
-    };
-
-    private Integer imageId[] = {
-            R.drawable.ic_strawberry,
-            R.drawable.ic_carrot,
-            R.drawable.ic_banana,
-            R.drawable.ic_watermelon,
-            R.drawable.ic_pear,
-            R.drawable.ic_lemon,
-            R.drawable.ic_chili,
-            R.drawable.ic_apple,
-            R.drawable.ic_orange,
-            R.drawable.ic_tomato,
-            R.drawable.ic_pumpkin,
-            R.drawable.ic_grapes
-    };
+    private int HOME_FRAME = 0;
+    private int SEEDS_FRAME = 1;
 
     private String tilesNames[] = {
             "Temperature",
@@ -93,15 +40,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -111,24 +49,10 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        setFragment(HOME_FRAME);
         /* uncomment this to try API connection */
         //_API_Connection api =  new _API_Connection( "api/GetSeeds");
-        //api.execute();
-
-
-//        CustomList customList = new CustomList(this, names, desc, imageId);
-//        listView = (ListView) findViewById(R.id.listView);
-//        listView.setAdapter(customList);
-//
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l){
-//                Intent intent = new Intent(MainActivity.this, seedInfo.class);
-//                intent.putExtra("itemName", names[i]);
-//                startActivity(intent);
-//            }
-//        });
-
+        //api.execute
     }
 
     @Override
@@ -168,23 +92,48 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        switch (id) {
 
-//        if (id == R.id.nav_camera) {
-//            // Handle the camera action
-//        } else if (id == R.id.nav_gallery) {
-//
-//        } else if (id == R.id.nav_slideshow) {
-//
-//        } else if (id == R.id.nav_manage) {
-//
-//        } else if (id == R.id.nav_share) {
-//
-//        } else if (id == R.id.nav_send) {
-//
-//        }
+            case R.id.nav_home:
+                setFragment(HOME_FRAME);
+            break;
+            case R.id.nav_all:
+                setFragment(SEEDS_FRAME);
+                break;
+
+            default:
+
+                break;
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    public void setFragment(int position) {
+        FragmentManager fragmentManager;
+        FragmentTransaction fragmentTransaction;
+        switch (position) {
+            case 0: //MENU_FRAME
+                fragmentManager = getSupportFragmentManager();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                HomeFragment homeFragment = new HomeFragment();
+                fragmentTransaction.replace(R.id.frameContent, homeFragment);
+                fragmentTransaction.commit();
+                break;
+
+            case 1: //SEEDS_FRAME
+                fragmentManager = getSupportFragmentManager();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                SeedsListFragment seedsListFragment = new SeedsListFragment();
+                fragmentTransaction.replace(R.id.frameContent, seedsListFragment);
+                fragmentTransaction.commit();
+                break;
+
+            default:
+                break;
+        }
     }
 }

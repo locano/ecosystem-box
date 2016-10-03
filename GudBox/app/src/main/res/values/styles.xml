@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@android:color/holo_orange_dark</item>
+
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -29,6 +30,7 @@
     <style name="roboto_regular">
         <item name="android:fontFamily">sans-serif</item>
     </style>
+
     <style name="roboto_light">
         <item name="android:fontFamily">sans-serif-light></item>
     </style>
