@@ -17,4 +17,6 @@
 
     <!-- Menu tiles -->
     <dimen name="tile_size">190dp</dimen>
+
+
 </resources>

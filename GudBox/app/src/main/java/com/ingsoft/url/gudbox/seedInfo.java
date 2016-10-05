@@ -22,12 +22,13 @@ public class seedInfo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seed_info);
-        Intent intent = getIntent();
-        seedName = intent.getStringExtra("itemName");
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(seedName);
         setSupportActionBar(toolbar);
 
+        Intent intent = getIntent();
+        seedName = intent.getStringExtra("itemName");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ImageView helpIcon = (ImageView)findViewById(R.id.helpIcon);
