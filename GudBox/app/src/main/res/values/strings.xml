@@ -31,5 +31,15 @@
     <string name="currently">Currently</string>
     <string name="celsius">Celsius</string>
 
+    <!-- Nav Drawer -->
+    <string name="profile">Profile</string>
+    <string name="ecosystem">Ecosystem</string>
+    <string name="sensors">Sensors</string>
+    <string name="farming">Farming</string>
+    <string name="seeds">Seeds</string>
+    <string name="all">All</string>
+    <string name="fruits">Fruits</string>
+    <string name="vegetables">Vegetables</string>
+
 
 </resources>

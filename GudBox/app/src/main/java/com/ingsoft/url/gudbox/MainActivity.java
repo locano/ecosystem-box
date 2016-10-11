@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity
 
     private int HOME_FRAME = 0;
     private int SEEDS_FRAME = 1;
+    private int FARMING_FRAME = 2;
 
     private String tilesNames[] = {
             "Temperature",
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Ecosystem");
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -94,11 +96,14 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         switch (id) {
 
-            case R.id.nav_home:
+            case R.id.nav_sensors:
                 setFragment(HOME_FRAME);
             break;
             case R.id.nav_all:
                 setFragment(SEEDS_FRAME);
+                break;
+            case R.id.nav_farm:
+                setFragment(FARMING_FRAME);
                 break;
 
             default:
@@ -115,6 +120,7 @@ public class MainActivity extends AppCompatActivity
     public void setFragment(int position) {
         FragmentManager fragmentManager;
         FragmentTransaction fragmentTransaction;
+
         switch (position) {
             case 0: //MENU_FRAME
                 fragmentManager = getSupportFragmentManager();
@@ -122,6 +128,7 @@ public class MainActivity extends AppCompatActivity
                 HomeFragment homeFragment = new HomeFragment();
                 fragmentTransaction.replace(R.id.frameContent, homeFragment);
                 fragmentTransaction.commit();
+                getSupportActionBar().setTitle("Ecosystem");
                 break;
 
             case 1: //SEEDS_FRAME
@@ -130,10 +137,22 @@ public class MainActivity extends AppCompatActivity
                 SeedsListFragment seedsListFragment = new SeedsListFragment();
                 fragmentTransaction.replace(R.id.frameContent, seedsListFragment);
                 fragmentTransaction.commit();
+                getSupportActionBar().setTitle("All seeds");
                 break;
 
+            case 2: //FARMING FRAME
+                fragmentManager = getSupportFragmentManager();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                FarmingListFragment farmingListFragment = new FarmingListFragment();
+                fragmentTransaction.replace(R.id.frameContent, farmingListFragment);
+                fragmentTransaction.commit();
+                getSupportActionBar().setTitle("Farming");
+            break;
+
             default:
+                getSupportActionBar().setTitle("Gudbox");
                 break;
         }
+
     }
 }

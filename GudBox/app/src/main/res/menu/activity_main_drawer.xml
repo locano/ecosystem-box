@@ -3,42 +3,38 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_home"
-            android:title="Home" />
-        <item
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_menu_profile"
-            android:title="Profile" />
+            android:title="@string/profile" />
     </group>
 
-    <item android:title="Ecosystem">
+    <item android:title="@string/ecosystem">
         <menu>
             <item
-                android:id="@+id/nav_temperature"
-                android:icon="@drawable/ic_menu_temperature"
-                android:title="Temperature" />
+                android:id="@+id/nav_sensors"
+                android:icon="@drawable/ic_menu_sensors"
+                android:title="@string/sensors" />
             <item
-                android:id="@+id/nav_humidity"
-                android:icon="@drawable/ic_menu_humidity"
-                android:title="Humidity" />
+                android:id="@+id/nav_farm"
+                android:icon="@drawable/ic_menu_farm"
+                android:title="@string/farming" />
         </menu>
     </item>
 
-    <item android:title="Seeds">
+    <item android:title="@string/seeds">
         <menu>
             <item
                 android:id="@+id/nav_all"
                 android:icon="@drawable/ic_menu_all"
-                android:title="All" />
+                android:title="@string/all" />
             <item
                 android:id="@+id/nav_fruits"
                 android:icon="@drawable/ic_menu_fruit"
-                android:title="Fruits" />
+                android:title="@string/fruits" />
             <item
                 android:id="@+id/nav_vegetables"
                 android:icon="@drawable/ic_menu_vegetables"
-                android:title="Vegetables" />
+                android:title="@string/vegetables" />
         </menu>
     </item>
 
