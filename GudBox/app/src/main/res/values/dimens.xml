@@ -13,10 +13,18 @@
 
     <!-- Cards Margins -->
     <dimen name="cards_child_margin">30dp</dimen>
-    <dimen name="cards_child_vertical_margin">16dp</dimen>
+    <dimen name="cards_child_vertical_margin">16dp</dimen> <!-- 16dp after card's top -->
+    <dimen name="cards_child_big_vertical_margin">32dp</dimen> <!-- 16dp after card's top -->
+    <dimen name="cards_margin">16dp</dimen>
+    <dimen name="negative_cards_child_vertical_margin">-16dp</dimen>
 
     <!-- Menu tiles -->
     <dimen name="tile_size">190dp</dimen>
+
+    <!-- Text sizes -->
+    <dimen name="text_small">16sp</dimen>
+    <dimen name="text_medium">32sp</dimen>
+    <dimen name="text_big_number">80sp</dimen>
 
 
 </resources>

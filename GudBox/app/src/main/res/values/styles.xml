@@ -32,6 +32,11 @@
     </style>
 
     <style name="roboto_light">
-        <item name="android:fontFamily">sans-serif-light></item>
+        <item name="android:fontFamily">sans-serif-thin></item>
+    </style>
+
+    <style name="roboto_bold">
+        <item name="android:fontFamily">sans-serif></item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>
