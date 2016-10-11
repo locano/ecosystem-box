@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         switch (id) {
 
-            case R.id.nav_home:
+            case R.id.nav_sensors:
                 setFragment(HOME_FRAME);
             break;
             case R.id.nav_all:
