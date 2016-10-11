@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="10dp"
+    card_view:cardCornerRadius="4dp">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/cards_child_vertical_margin"
+                android:layout_marginBottom="@dimen/cards_child_vertical_margin"
+                android:text="@string/temperature"
+                style="@style/roboto_regular"
+                />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/darkGray" />
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:columnCount="2"
+            android:rowCount="3" >
+
+            <TextView
+                android:layout_column="0"
+                android:layout_row="0"
+                android:layout_rowSpan="1"
+                android:layout_columnSpan="1"
+                android:text="@string/currently"
+                android:background="@color/primaryText"
+                />
+
+            <TextView
+                android:layout_column="0"
+                android:layout_row="1"
+                android:layout_rowSpan="2"
+                android:layout_columnSpan="1"
+                android:text="70°"
+                android:background="@color/colorAccent"
+                />
+
+            <TextView
+                android:layout_column="1"
+                android:layout_row="0"
+                android:layout_rowSpan="3"
+                android:layout_columnSpan="1"
+                android:background="@color/colorAccentDark"
+                />
+
+
+        </GridLayout>
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>
