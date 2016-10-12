@@ -33,18 +33,33 @@ public class FarmingListFragment extends Fragment {
             "Grapes"
     };
     private String desc[] = {
-            "January - June",
-            "April - January",
-            "All year",
-            "May - September",
-            "June - December",
-            "All year",
-            "September - December",
-            "July - February",
-            "October - May",
-            "April - December",
-            "October - March",
-            "August - December"
+            "20 Mar 2016",
+            "20 Mar 2016",
+            "20 Mar 2016",
+            "20 Mar 2016",
+            "12 Apr 2016",
+            "12 Apr 2016",
+            "12 Apr 2016",
+            "12 Apr 2016",
+            "30 Sep 2016",
+            "30 Sep 2016",
+            "30 Sep 2016",
+            "30 Sep 2016"
+    };
+
+    private String daysLeft[] = {
+            "2",
+            "1",
+            "16",
+            "33",
+            "20",
+            "10",
+            "5",
+            "21",
+            "30",
+            "9",
+            "7",
+            "22"
     };
 
     private Integer imageId[] = {
@@ -73,16 +88,16 @@ public class FarmingListFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_farming_list, container, false);
         final Activity parentActivity = getActivity();
-        CustomList customList = new CustomList(parentActivity, names, desc, imageId);
+        CustomFarmingList customFarmingList = new CustomFarmingList(parentActivity, names, desc, daysLeft, imageId);
         listView = (ListView) view.findViewById(R.id.listView);
-        listView.setAdapter(customList);
+        listView.setAdapter(customFarmingList);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l){
-                Intent intent = new Intent(getActivity(), seedInfo.class);
-                intent.putExtra("itemName", names[i]);
-                startActivity(intent);
+                //Intent intent = new Intent(getActivity(), seedInfo.class);
+                //intent.putExtra("itemName", names[i]);
+                //startActivity(intent);
             }
         });
 
