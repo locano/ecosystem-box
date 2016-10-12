@@ -11,11 +11,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.ingsoft.url.gudbox.CustomList;
-import com.ingsoft.url.gudbox.MainActivity;
-import com.ingsoft.url.gudbox.R;
-import com.ingsoft.url.gudbox.seedInfo;
-
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -77,9 +72,9 @@ public class SeedsListFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_seeds_list, container, false);
         final Activity parentActivity = getActivity();
-        CustomList customList = new CustomList(parentActivity, names, desc, imageId);
+        CustomSeedsList customSeedsList = new CustomSeedsList(parentActivity, names, desc, imageId);
         listView = (ListView) view.findViewById(R.id.listView);
-        listView.setAdapter(customList);
+        listView.setAdapter(customSeedsList);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override

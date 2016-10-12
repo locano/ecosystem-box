@@ -11,14 +11,14 @@ import android.widget.TextView;
 /**
  * Created by jcdur on 29/08/2016.
  */
-public class CustomList extends ArrayAdapter<String> {
+public class CustomSeedsList extends ArrayAdapter<String> {
 
     private String[] names;
     private String[] desc;
     private Integer[] imageId;
     private Activity context;
 
-    public CustomList(Activity context, String[] names, String[] desc, Integer[] imageId){
+    public CustomSeedsList(Activity context, String[] names, String[] desc, Integer[] imageId){
         super(context, R.layout.seeds_list_layout, names);
         this.context = context;
         this.names = names;
