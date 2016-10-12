@@ -18,10 +18,12 @@ android {
                     'src/main/res/drawable/seeds',
                     'src/main/res/drawable/seedsInfo',
                     'src/main/res/drawable/navDrawer',
+                    'src/main/res/drawable/ecosystem',
                     'src/main/res/drawable',
                     'src/main/res/layout/Home',
                     'src/main/res/layout/SeedsActivities',
                     'src/main/res/layout/NavigationDrawer',
+                    'src/main/res/layout/EcosystemActivities',
                     'src/main/res/layout'
             ]
         }
