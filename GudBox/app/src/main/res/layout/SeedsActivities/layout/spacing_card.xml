@@ -8,6 +8,7 @@
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
     android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
     card_view:cardCornerRadius="4dp">
 
     <LinearLayout
@@ -28,7 +29,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/recommendations"
+                android:text="@string/ground"
                 android:fontFamily="sans-serif"
                 android:textColor="@color/colorPrimary"
                 android:layout_weight="3"
@@ -47,13 +48,13 @@
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_cold_weather"
+                android:src="@drawable/ic_ground_volume"
                 android:maxWidth="20dp"
                 android:layout_weight="1" />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/coldTemp"
+                android:text="@string/volume"
                 android:fontFamily="sans-serif"
                 android:textColor="@color/primaryText"
                 android:layout_weight="2"
@@ -61,8 +62,8 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="15°C"
-                android:id="@+id/txtColdTemp"
+                android:text="0.75L"
+                android:id="@+id/txtGroundVolume"
                 android:fontFamily="sans-serif"
                 android:textColor="@color/secondaryText"
                 android:layout_weight="1"
@@ -81,12 +82,12 @@
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_warm_weather"
+                android:src="@drawable/ic_depth"
                 android:layout_weight="1" />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/warmTemp"
+                android:text="@string/depth"
                 android:fontFamily="sans-serif"
                 android:textColor="@color/primaryText"
                 android:layout_weight="2"
@@ -94,8 +95,8 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="30°C"
-                android:id="@+id/txtWarmTemp"
+                android:text="5cm"
+                android:id="@+id/txtSeedDepth"
                 android:fontFamily="sans-serif"
                 android:textColor="@color/secondaryText"
                 android:layout_weight="1"
@@ -114,13 +115,13 @@
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_ph"
+                android:src="@drawable/ic_distance"
                 android:maxWidth="20dp"
                 android:layout_weight="1" />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/ph"
+                android:text="@string/separation"
                 android:fontFamily="sans-serif"
                 android:textColor="@color/primaryText"
                 android:layout_weight="2"
@@ -128,8 +129,8 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="5pH-m"
-                android:id="@+id/txtPH"
+                android:text="10cm"
+                android:id="@+id/txtSeparation"
                 android:fontFamily="sans-serif"
                 android:textColor="@color/secondaryText"
                 android:layout_weight="1"
@@ -148,12 +149,12 @@
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_sun"
+                android:src="@drawable/ic_radius"
                 android:layout_weight="1" />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/sunHrs"
+                android:text="@string/radius"
                 android:fontFamily="sans-serif"
                 android:textColor="@color/primaryText"
                 android:layout_weight="2"
@@ -161,8 +162,8 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="6 hrs"
-                android:id="@+id/txtSunHr"
+                android:text="12cm"
+                android:id="@+id/txtRadius"
                 android:fontFamily="sans-serif"
                 android:textColor="@color/secondaryText"
                 android:layout_weight="1"

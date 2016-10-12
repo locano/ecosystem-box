@@ -37,6 +37,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.ingsoft.url.gudbox.MainActivity" />
         </activity>
+        <activity
+            android:name=".ExtraInfoActicity"
+            android:label="@string/title_activity_extra_info_acticity"
+            android:parentActivityName=".seedInfo"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ingsoft.url.gudbox.seedInfo" />
+        </activity>
     </application>
 
 </manifest>
