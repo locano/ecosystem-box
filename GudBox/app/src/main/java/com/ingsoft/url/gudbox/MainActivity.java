@@ -13,7 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, _API_Connection.onTaskCompleted {
 
     private int HOME_FRAME = 0;
     private int SEEDS_FRAME = 1;
@@ -52,9 +52,14 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         setFragment(HOME_FRAME);
-        /* uncomment this to try API connection */
-        //_API_Connection api =  new _API_Connection( "api/GetSeeds");
-        //api.execute
+
+        _API_Connection api =  new _API_Connection(MainActivity.this);
+        api.execute();
+    }
+
+    @Override
+    public void onTaskCompleted(String response){
+        String get_it = response;
     }
 
     @Override
@@ -155,4 +160,5 @@ public class MainActivity extends AppCompatActivity
         }
 
     }
+
 }
