@@ -16,28 +16,35 @@ import java.net.URLConnection;
  * Created by iiscancinos on 25/09/2016.
  */
 
-public class _API_Connection extends AsyncTask<Void, Void, String> {
+public class _API_Connection extends AsyncTask {
     /***
      *  Global variables
      */
-    String main_URL = "http://urlayd.azurewebsites.net/";
+    String main_URL = "http://urlayd.azurewebsites.net/api/GetSeeds", message = "";
+    private onTaskCompleted taskCompleted;
 
     /***
      * API's constructor; setting url
      * @param url (String) HTTP action path
      */
-    public _API_Connection(String url){
-        this.main_URL += url;
+    public _API_Connection(onTaskCompleted activityContext){
+        this.taskCompleted = activityContext;
     }
 
     /***
      * Thread main execution
-     * @param params (String) use for http request
+     * @param objects (Object[]) use for http request
      * @return (String) retrieve body request
      */
     @Override
-    protected String doInBackground(Void... params){
-        return connect();
+    protected Object doInBackground(Object[] objects) {
+        message = connect();
+        return null;
+    }
+
+    protected void onPostExecute(Object o){
+        // Your code to handle data
+        taskCompleted.onTaskCompleted(message);
     }
 
     /***
@@ -83,6 +90,10 @@ public class _API_Connection extends AsyncTask<Void, Void, String> {
         }
         br.close();
 
-        return flag;
+        return sb.toString();
+    }
+
+    public interface onTaskCompleted {
+        void onTaskCompleted(String response);
     }
 }
