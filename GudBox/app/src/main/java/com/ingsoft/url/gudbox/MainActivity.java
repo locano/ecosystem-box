@@ -12,6 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -105,7 +107,14 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_farm:
                 setFragment(FARMING_FRAME);
                 break;
-
+            case R.id.nav_fruits:
+                int bla = 0;
+                bla++;
+                InternalAPI api = new InternalAPI();
+                api.downloadSeeds();
+                List<ServerSeed> serverSeeds = api.getAllSeeds();
+                bla++;
+                break;
             default:
 
                 break;
