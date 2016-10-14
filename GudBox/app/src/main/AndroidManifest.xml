@@ -19,7 +19,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <meta-data android:name="VERSION" android:value="2" />
+        <meta-data
+            android:name="VERSION"
+            android:value="2" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -47,6 +50,15 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.ingsoft.url.gudbox.seedInfo" />
+        </activity>
+        <activity
+            android:name=".PlantedSeedInfoActivity"
+            android:label="@string/title_activity_planted_seed_info"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ingsoft.url.gudbox.MainActivity" />
         </activity>
     </application>
 
