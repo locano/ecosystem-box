@@ -1,0 +1,97 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="10dp"
+    card_view:cardCornerRadius="4dp">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Strawberry life"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/colorPrimary"
+            android:layout_weight="3"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingStart="@dimen/cards_child_margin"
+            android:paddingLeft="@dimen/cards_child_margin"
+            android:textSize="18sp" />
+
+
+        <LinearLayout android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:weightSum="4"
+            android:layout_marginRight="@dimen/cards_child_margin"
+            android:layout_marginLeft="@dimen/cards_child_margin"
+            >
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_calendar"
+                android:maxWidth="20dp"
+                android:layout_weight="1" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/planted"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/primaryText"
+                android:layout_weight="2"
+                android:textSize="18sp" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Sep-16"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/secondaryText"
+                android:layout_weight="1"
+                android:textSize="18sp" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:weightSum="4"
+            android:layout_marginRight="@dimen/cards_child_margin"
+            android:layout_marginLeft="@dimen/cards_child_margin"
+            >
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_clock"
+                android:maxWidth="20dp"
+                android:layout_weight="1" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/ready"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/primaryText"
+                android:layout_weight="2"
+                android:textSize="18sp" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="25 days"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/secondaryText"
+                android:layout_weight="1"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

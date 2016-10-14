@@ -57,6 +57,10 @@
         ]]>
     </string>
     <string name="title_activity_extra_info_acticity">Information</string>
+    <string name="title_activity_planted_seed_info">Information</string>
+
+    <string name="planted">Planted on</string>
+    <string name="ready">Ready on</string>
 
 
 </resources>

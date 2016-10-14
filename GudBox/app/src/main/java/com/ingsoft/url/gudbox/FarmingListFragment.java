@@ -95,9 +95,9 @@ public class FarmingListFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l){
-                //Intent intent = new Intent(getActivity(), seedInfo.class);
-                //intent.putExtra("itemName", names[i]);
-                //startActivity(intent);
+                Intent intent = new Intent(getActivity(), PlantedSeedInfoActivity.class);
+                intent.putExtra("itemName", names[i]);
+                startActivity(intent);
             }
         });
 

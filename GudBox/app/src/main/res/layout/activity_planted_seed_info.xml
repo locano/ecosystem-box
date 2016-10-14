@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#E0E0E0"
     android:fitsSystemWindows="true"
-    tools:context="com.ingsoft.url.gudbox.seedInfo">
+    tools:context="com.ingsoft.url.gudbox.PlantedSeedInfoActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -33,26 +33,17 @@
         >
 
         <LinearLayout
-            android:layout_marginTop="@dimen/nav_header_vertical_spacing"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include layout="@layout/seeding_months_card"/>
-            <include layout="@layout/nutritional_values_card"/>
+            <include layout="@layout/remaining_time_card"/>
             <include layout="@layout/recommendations_card"/>
             <include layout="@layout/spacing_card" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="64dp"
-                android:minHeight="64dp"
-                android:text="@string/plantingSteps"
-                android:layout_marginBottom="30dp"
-                android:layout_gravity="center_horizontal"
-                android:id="@+id/btnSteps"
-                android:theme="@style/MyButton"/>
+
         </LinearLayout>
 
     </ScrollView>
 
 </android.support.design.widget.CoordinatorLayout>
+
