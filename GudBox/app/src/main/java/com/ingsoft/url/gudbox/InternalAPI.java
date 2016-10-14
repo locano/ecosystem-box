@@ -1,5 +1,7 @@
 package com.ingsoft.url.gudbox;
 
+import android.app.Activity;
+import android.os.AsyncTask;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -19,20 +21,34 @@ import java.util.Map;
 public class InternalAPI implements _API_Connection.onTaskCompleted {
     String baseURL = "http://urlayd.azurewebsites.net/api/", allSeedsURL = "getseeds/", specificSeedURL = "getseed/";
     OPERATIONS operations;
+    OnSeedsDownloaded mCallback;
 
     public enum OPERATIONS {
         DOWNLOAD_ALL_SEEDS, DOWNLOAD_SPECIFIC_SEED
+    }
+
+    public InternalAPI(Activity activity){
+        try {
+            mCallback = (OnSeedsDownloaded) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement OnHeadlineSelectedListener");
+        }
+    }
+
+    public interface OnSeedsDownloaded {
+        public void onSeedsDownloaded();
     }
 
     public List<ServerSeed> getAllServerSeeds(){
         return ServerSeed.listAll(ServerSeed.class);
     }
 
-    public PlantedSeed plantSeed(ServerSeed serverSeed, int slot){
-        List<PlantedSeed> allPlantedSeeds = PlantedSeed.listAll(PlantedSeed.class);
-        PlantedSeed plantedSeed = new PlantedSeed(allPlantedSeeds.size(), serverSeed, new Date(), slot);
-        plantedSeed.save();
-        return plantedSeed;
+    public ServerSeed getSeedByID(int id){
+        List<ServerSeed> result = ServerSeed.find(ServerSeed.class, "id = ?", String.valueOf(id));
+        if(result.size() > 0)
+            return result.get(0);
+        return null;
     }
 
     public void downloadAllSeeds(){
@@ -64,6 +80,7 @@ public class InternalAPI implements _API_Connection.onTaskCompleted {
                     }
                 }
                 Log.i("GUDBOX", "SAVED ALL SERVER SEEDS ON PHONE");
+                mCallback.onSeedsDownloaded();
                 break;
             case DOWNLOAD_SPECIFIC_SEED:
                 Log.i("GUDBOX", "FINISHED DOWNLOADING SPECIFIC SEED " + String.valueOf((Integer) params.get("id")));
@@ -91,7 +108,7 @@ public class InternalAPI implements _API_Connection.onTaskCompleted {
                     seed.getString("name"),
                     seed.getString("dirt"),
                     seed.getString("germination"),
-                    seed.getString("needs_hotbead").equalsIgnoreCase("T"),
+                    seed.getString("needs_hotbed").equalsIgnoreCase("T"),
                     seed.getString("summer").equalsIgnoreCase("T"),
                     seed.getString("spring").equalsIgnoreCase("T"),
                     seed.getString("autumn").equalsIgnoreCase("T"),
