@@ -21,14 +21,19 @@ public class _API_Connection extends AsyncTask {
      *  Global variables
      */
     String main_URL = "http://urlayd.azurewebsites.net/api/GetSeeds", message = "";
+    InternalAPI.OPERATIONS operation_code;
     private onTaskCompleted taskCompleted;
 
     /***
      * API's constructor; setting url
-     * @param url (String) HTTP action path
+     * @param activityContext (String) HTTP action path
      */
     public _API_Connection(onTaskCompleted activityContext){
         this.taskCompleted = activityContext;
+    }
+
+    public void changeURL(String url){
+        this.main_URL = url;
     }
 
     /***
@@ -44,7 +49,7 @@ public class _API_Connection extends AsyncTask {
 
     protected void onPostExecute(Object o){
         // Your code to handle data
-        taskCompleted.onTaskCompleted(message);
+        taskCompleted.onTaskCompleted(message, operation_code);
     }
 
     /***
@@ -94,6 +99,6 @@ public class _API_Connection extends AsyncTask {
     }
 
     public interface onTaskCompleted {
-        void onTaskCompleted(String response);
+        void onTaskCompleted(String response, InternalAPI.OPERATIONS code);
     }
 }
