@@ -9,6 +9,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -55,12 +56,12 @@ public class MainActivity extends AppCompatActivity
 
         setFragment(HOME_FRAME);
 
-        _API_Connection api =  new _API_Connection(MainActivity.this);
-        api.execute();
+        //_API_Connection api =  new _API_Connection(MainActivity.this);
+        //api.execute();
     }
 
     @Override
-    public void onTaskCompleted(String response){
+    public void onTaskCompleted(String response, InternalAPI.OPERATIONS code){
         String get_it = response;
     }
 
@@ -113,12 +114,9 @@ public class MainActivity extends AppCompatActivity
                 setFragment(FARMING_FRAME);
                 break;
             case R.id.nav_fruits:
-                int bla = 0;
-                bla++;
                 InternalAPI api = new InternalAPI();
-                api.downloadSeeds();
-                List<ServerSeed> serverSeeds = api.getAllSeeds();
-                bla++;
+                api.downloadAllSeeds();
+                Log.i("GUDBOX", "DOWNLOADING DATA");
                 break;
             default:
 
