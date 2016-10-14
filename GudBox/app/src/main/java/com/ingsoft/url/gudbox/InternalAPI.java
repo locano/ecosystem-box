@@ -9,7 +9,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -37,7 +39,7 @@ public class InternalAPI implements _API_Connection.onTaskCompleted {
     }
 
     public interface OnSeedsDownloaded {
-        public void onSeedsDownloaded();
+        public void onSeedsDownloaded(String message);
     }
 
     public List<ServerSeed> getAllServerSeeds(){
@@ -67,6 +69,27 @@ public class InternalAPI implements _API_Connection.onTaskCompleted {
         api.execute();
     }
 
+    public boolean isItGoodSeason(ServerSeed seed){
+        boolean[] currentSeason = {false, false, false, false}; //summer, winter, spring, autumn
+        GregorianCalendar date = new GregorianCalendar();
+        int month = 1 + date.get(Calendar.MONTH);
+        if (month >= 9 || month <= 11) //autumn
+            currentSeason[3] = true;
+        else if (month == 12 || (month >= 1 || month <= 3)) //winter
+            currentSeason[1] = true;
+        else if (month >= 6 || month <= 8) //summer
+            currentSeason[0] = true;
+        else //spring
+            currentSeason[2] = true;
+
+        boolean[] seedSeasons = {seed.summer, seed.winter, seed.spring, seed.autumn};
+        for (int i = 0; i < seedSeasons.length; i++) {
+            if(currentSeason[i] && seedSeasons[i])
+                return true;
+        }
+        return false;
+    }
+
     @Override
     public void onTaskCompleted(String response, InternalAPI.OPERATIONS code, Map<String, Object> params) {
         switch (code){
@@ -80,13 +103,13 @@ public class InternalAPI implements _API_Connection.onTaskCompleted {
                     }
                 }
                 Log.i("GUDBOX", "SAVED ALL SERVER SEEDS ON PHONE");
-                mCallback.onSeedsDownloaded();
                 break;
             case DOWNLOAD_SPECIFIC_SEED:
                 Log.i("GUDBOX", "FINISHED DOWNLOADING SPECIFIC SEED " + String.valueOf((Integer) params.get("id")));
                 ServerSeed serverSeed = serverSeedFromJSON(response, (Integer) params.get("id"));
                 serverSeed.save();
                 Log.i("GUDBOX", "SAVED SEED " + String.valueOf((Integer) params.get("id") + " ON THE PHONE"));
+                mCallback.onSeedsDownloaded("Downloaded " + serverSeed.name + " to the phone's database.");
                 break;
         }
     }
