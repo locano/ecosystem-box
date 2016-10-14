@@ -16,7 +16,7 @@ import android.view.MenuItem;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, _API_Connection.onTaskCompleted {
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     private int HOME_FRAME = 0;
     private int SEEDS_FRAME = 1;
@@ -56,13 +56,9 @@ public class MainActivity extends AppCompatActivity
 
         setFragment(HOME_FRAME);
 
-        //_API_Connection api =  new _API_Connection(MainActivity.this);
-        //api.execute();
-    }
-
-    @Override
-    public void onTaskCompleted(String response, InternalAPI.OPERATIONS code){
-        String get_it = response;
+        InternalAPI api = new InternalAPI();
+        api.downloadAllSeeds();
+        List<ServerSeed> seeds = api.getAllServerSeeds();
     }
 
     @Override
@@ -114,9 +110,7 @@ public class MainActivity extends AppCompatActivity
                 setFragment(FARMING_FRAME);
                 break;
             case R.id.nav_fruits:
-                InternalAPI api = new InternalAPI();
-                api.downloadAllSeeds();
-                Log.i("GUDBOX", "DOWNLOADING DATA");
+
                 break;
             default:
 

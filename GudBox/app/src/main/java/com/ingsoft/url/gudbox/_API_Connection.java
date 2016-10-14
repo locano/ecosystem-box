@@ -11,6 +11,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.io.IOException;
 import java.net.URLConnection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * Created by iiscancinos on 25/09/2016.
@@ -22,6 +26,7 @@ public class _API_Connection extends AsyncTask {
      */
     String main_URL = "http://urlayd.azurewebsites.net/api/GetSeeds", message = "";
     InternalAPI.OPERATIONS operation_code;
+    Map<String, Object> params = new HashMap<String, Object>();
     private onTaskCompleted taskCompleted;
 
     /***
@@ -34,6 +39,14 @@ public class _API_Connection extends AsyncTask {
 
     public void changeURL(String url){
         this.main_URL = url;
+    }
+
+    public void addParam(String key, Object objectParam){
+        params.put(key, objectParam);
+    }
+
+    public Object getParam(String key){
+        return params.get(key);
     }
 
     /***
@@ -49,7 +62,7 @@ public class _API_Connection extends AsyncTask {
 
     protected void onPostExecute(Object o){
         // Your code to handle data
-        taskCompleted.onTaskCompleted(message, operation_code);
+        taskCompleted.onTaskCompleted(message, operation_code, params);
     }
 
     /***
@@ -99,6 +112,6 @@ public class _API_Connection extends AsyncTask {
     }
 
     public interface onTaskCompleted {
-        void onTaskCompleted(String response, InternalAPI.OPERATIONS code);
+        void onTaskCompleted(String response, InternalAPI.OPERATIONS code, Map<String, Object> params);
     }
 }

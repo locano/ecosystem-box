@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by grand on 10/13/2016.
@@ -21,6 +22,10 @@ public class InternalAPI implements _API_Connection.onTaskCompleted {
 
     public enum OPERATIONS {
         DOWNLOAD_ALL_SEEDS, DOWNLOAD_SPECIFIC_SEED
+    }
+
+    public List<ServerSeed> getAllServerSeeds(){
+        return ServerSeed.listAll(ServerSeed.class);
     }
 
     public PlantedSeed plantSeed(ServerSeed serverSeed, int slot){
@@ -37,28 +42,17 @@ public class InternalAPI implements _API_Connection.onTaskCompleted {
         api.execute();
     }
 
-    public void downloadSeedWithId(int id){
+    private void downloadSeedWithId(int id){
         _API_Connection api = new _API_Connection(InternalAPI.this);
         api.changeURL(baseURL + specificSeedURL + String.valueOf(id));
         api.operation_code = operations.DOWNLOAD_SPECIFIC_SEED;
+        api.addParam("id", id);
+        Log.i("GUDBOX", "DOWNLOADING SEED DETAIL FOR ID " + String.valueOf(id));
         api.execute();
     }
 
-    public List<ServerSeed> getAllSeeds(){
-        return ServerSeed.listAll(ServerSeed.class);
-    }
-
-    private void saveUnsavedSeeds(List<ServerSeed> serverSeeds){
-        List<ServerSeed> savedSeeds = ServerSeed.listAll(ServerSeed.class);
-        if(savedSeeds.size() == 0){
-            for (ServerSeed serverSeed : serverSeeds) {
-                serverSeed.save();
-            }
-        }
-    }
-
     @Override
-    public void onTaskCompleted(String response, InternalAPI.OPERATIONS code) {
+    public void onTaskCompleted(String response, InternalAPI.OPERATIONS code, Map<String, Object> params) {
         switch (code){
             case DOWNLOAD_ALL_SEEDS:
                 Log.i("GUDBOX", "FINISHED DOWNLOADING ALL SEEDS");
@@ -69,21 +63,22 @@ public class InternalAPI implements _API_Connection.onTaskCompleted {
                         downloadSeedWithId(id);
                     }
                 }
+                Log.i("GUDBOX", "SAVED ALL SERVER SEEDS ON PHONE");
                 break;
             case DOWNLOAD_SPECIFIC_SEED:
-
+                Log.i("GUDBOX", "FINISHED DOWNLOADING SPECIFIC SEED " + String.valueOf((Integer) params.get("id")));
+                ServerSeed serverSeed = serverSeedFromJSON(response, (Integer) params.get("id"));
+                serverSeed.save();
+                Log.i("GUDBOX", "SAVED SEED " + String.valueOf((Integer) params.get("id") + " ON THE PHONE"));
                 break;
         }
     }
-// int id, int min_temp, int max_temp, int days, int volume, int min_depth, int min_radius, int min_radius_line,
-// int sun_hours, int water_level, String name, String dirt, String germination, boolean needs_hotbead, boolean summer,
-// boolean spring, boolean autumn, boolean winter, double ph){
-    private ServerSeed serverSeedFromJSON(String response){
+
+    private ServerSeed serverSeedFromJSON(String response, int id){
         try {
             JSONObject seed = new JSONObject(response);
-            boolean testBool = seed.getBoolean("spring");
             ServerSeed serverSeed = new ServerSeed(
-                    seed.getInt("id"),
+                    id,
                     seed.getInt("min_temp"),
                     seed.getInt("max_temp"),
                     seed.getInt("days"),
@@ -96,11 +91,11 @@ public class InternalAPI implements _API_Connection.onTaskCompleted {
                     seed.getString("name"),
                     seed.getString("dirt"),
                     seed.getString("germination"),
-                    seed.getBoolean("needs_hotbead"),
-                    seed.getBoolean("summer"),
-                    seed.getBoolean("spring"),
-                    seed.getBoolean("autumn"),
-                    seed.getBoolean("winter"),
+                    seed.getString("needs_hotbead").equalsIgnoreCase("T"),
+                    seed.getString("summer").equalsIgnoreCase("T"),
+                    seed.getString("spring").equalsIgnoreCase("T"),
+                    seed.getString("autumn").equalsIgnoreCase("T"),
+                    seed.getString("winter").equalsIgnoreCase("T"),
                     seed.getDouble("ph")
             );
             return serverSeed;
