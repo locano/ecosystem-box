@@ -56,9 +56,6 @@ public class MainActivity extends AppCompatActivity
 
         setFragment(HOME_FRAME);
 
-//        InternalAPI api = new InternalAPI();
-//        api.downloadAllSeeds();
-//        List<ServerSeed> seeds = api.getAllServerSeeds();
     }
 
     @Override
