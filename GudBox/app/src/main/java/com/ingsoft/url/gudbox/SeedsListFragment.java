@@ -20,6 +20,7 @@ import java.util.List;
 public class SeedsListFragment extends Fragment {
 
     private ListView listView;
+    private List<ServerSeed> serverSeeds;
     private String names[] = {
             "Strawberry",
             "Carrot",
@@ -78,12 +79,12 @@ public class SeedsListFragment extends Fragment {
 
         //Retrieving seeds from database
         InternalAPI api = new InternalAPI(this.getActivity());
-        List<ServerSeed> seeds = api.getAllServerSeeds();
+        serverSeeds = api.getAllServerSeeds();
         List<String> seedNames = new ArrayList<>();
         List<String> seedDescriptions = new ArrayList<>();
         List<Integer> seedPics = new ArrayList<>();
 
-        for (ServerSeed seed: seeds) {
+        for (ServerSeed seed: serverSeeds) {
             seedNames.add(seed.name);
             String desc = String.valueOf(seed.days) + " days - ";
             if (api.isItGoodSeason(seed)) desc += "Good season to plant!";

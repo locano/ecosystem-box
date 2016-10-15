@@ -53,6 +53,13 @@ public class InternalAPI implements _API_Connection.onTaskCompleted {
         return null;
     }
 
+    public ServerSeed getSeedByName(String name){
+        List<ServerSeed> result = ServerSeed.find(ServerSeed.class, "name = ?", String.valueOf(name));
+        if(result.size() > 0)
+            return result.get(0);
+        return null;
+    }
+
     public void downloadAllSeeds(){
         _API_Connection api = new _API_Connection(InternalAPI.this);
         api.changeURL(baseURL + allSeedsURL);
