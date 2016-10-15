@@ -17,6 +17,7 @@ import android.support.design.widget.Snackbar;
 public class seedInfo extends AppCompatActivity {
 
     private String seedName;
+    private ServerSeed serverSeed;
     private RecyclerView recyclerView;
 
     @Override
@@ -30,6 +31,7 @@ public class seedInfo extends AppCompatActivity {
 
         Intent intent = getIntent();
         seedName = intent.getStringExtra("itemName");
+        serverSeed = new InternalAPI(this.getParent()).getSeedByName(seedName);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ImageView helpIcon = (ImageView)findViewById(R.id.helpIcon);

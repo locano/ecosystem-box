@@ -1,5 +1,7 @@
 package com.ingsoft.url.gudbox;
 
+import android.app.Activity;
+import android.os.AsyncTask;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -7,7 +9,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -19,20 +23,41 @@ import java.util.Map;
 public class InternalAPI implements _API_Connection.onTaskCompleted {
     String baseURL = "http://urlayd.azurewebsites.net/api/", allSeedsURL = "getseeds/", specificSeedURL = "getseed/";
     OPERATIONS operations;
+    OnSeedsDownloaded mCallback;
 
     public enum OPERATIONS {
         DOWNLOAD_ALL_SEEDS, DOWNLOAD_SPECIFIC_SEED
+    }
+
+    public InternalAPI(Activity activity){
+        try {
+            mCallback = (OnSeedsDownloaded) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement OnHeadlineSelectedListener");
+        }
+    }
+
+    public interface OnSeedsDownloaded {
+        public void onSeedsDownloaded(String message);
     }
 
     public List<ServerSeed> getAllServerSeeds(){
         return ServerSeed.listAll(ServerSeed.class);
     }
 
-    public PlantedSeed plantSeed(ServerSeed serverSeed, int slot){
-        List<PlantedSeed> allPlantedSeeds = PlantedSeed.listAll(PlantedSeed.class);
-        PlantedSeed plantedSeed = new PlantedSeed(allPlantedSeeds.size(), serverSeed, new Date(), slot);
-        plantedSeed.save();
-        return plantedSeed;
+    public ServerSeed getSeedByID(int id){
+        List<ServerSeed> result = ServerSeed.find(ServerSeed.class, "id = ?", String.valueOf(id));
+        if(result.size() > 0)
+            return result.get(0);
+        return null;
+    }
+
+    public ServerSeed getSeedByName(String name){
+        List<ServerSeed> result = ServerSeed.find(ServerSeed.class, "name = ?", String.valueOf(name));
+        if(result.size() > 0)
+            return result.get(0);
+        return null;
     }
 
     public void downloadAllSeeds(){
@@ -49,6 +74,27 @@ public class InternalAPI implements _API_Connection.onTaskCompleted {
         api.addParam("id", id);
         Log.i("GUDBOX", "DOWNLOADING SEED DETAIL FOR ID " + String.valueOf(id));
         api.execute();
+    }
+
+    public boolean isItGoodSeason(ServerSeed seed){
+        boolean[] currentSeason = {false, false, false, false}; //summer, winter, spring, autumn
+        GregorianCalendar date = new GregorianCalendar();
+        int month = 1 + date.get(Calendar.MONTH);
+        if (month >= 9 || month <= 11) //autumn
+            currentSeason[3] = true;
+        else if (month == 12 || (month >= 1 || month <= 3)) //winter
+            currentSeason[1] = true;
+        else if (month >= 6 || month <= 8) //summer
+            currentSeason[0] = true;
+        else //spring
+            currentSeason[2] = true;
+
+        boolean[] seedSeasons = {seed.summer, seed.winter, seed.spring, seed.autumn};
+        for (int i = 0; i < seedSeasons.length; i++) {
+            if(currentSeason[i] && seedSeasons[i])
+                return true;
+        }
+        return false;
     }
 
     @Override
@@ -70,6 +116,7 @@ public class InternalAPI implements _API_Connection.onTaskCompleted {
                 ServerSeed serverSeed = serverSeedFromJSON(response, (Integer) params.get("id"));
                 serverSeed.save();
                 Log.i("GUDBOX", "SAVED SEED " + String.valueOf((Integer) params.get("id") + " ON THE PHONE"));
+                mCallback.onSeedsDownloaded("Downloaded " + serverSeed.name + " to the phone's database.");
                 break;
         }
     }
@@ -91,7 +138,7 @@ public class InternalAPI implements _API_Connection.onTaskCompleted {
                     seed.getString("name"),
                     seed.getString("dirt"),
                     seed.getString("germination"),
-                    seed.getString("needs_hotbead").equalsIgnoreCase("T"),
+                    seed.getString("needs_hotbed").equalsIgnoreCase("T"),
                     seed.getString("summer").equalsIgnoreCase("T"),
                     seed.getString("spring").equalsIgnoreCase("T"),
                     seed.getString("autumn").equalsIgnoreCase("T"),

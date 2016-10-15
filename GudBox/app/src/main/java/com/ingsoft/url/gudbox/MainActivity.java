@@ -1,5 +1,6 @@
 package com.ingsoft.url.gudbox;
 
+import android.content.Context;
 import android.app.Notification;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -14,11 +15,13 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, InternalAPI.OnSeedsDownloaded {
 
     private int HOME_FRAME = 0;
     private int SEEDS_FRAME = 1;
@@ -37,6 +40,13 @@ public class MainActivity extends AppCompatActivity
             R.color.paletteTeal,
             R.color.paletteRed
     };
+
+    public void onSeedsDownloaded(String message){
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, message, duration);
+        toast.show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +68,8 @@ public class MainActivity extends AppCompatActivity
 
         setFragment(HOME_FRAME);
 
+        InternalAPI api = new InternalAPI(this);
+        api.downloadAllSeeds();
     }
 
     @Override
