@@ -1,9 +1,11 @@
 package com.ingsoft.url.gudbox;
 
+import android.app.Notification;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -105,6 +107,8 @@ public class MainActivity extends AppCompatActivity
             break;
             case R.id.nav_all:
                 setFragment(SEEDS_FRAME);
+                Notification notification = new AndroidNotification("TOMATOE","THIS SEED IS READY TO COLLECT",R.drawable.ic_tomato,this).CreateNotification();
+                NotificationManagerCompat.from(this).notify(0,notification);
                 break;
             case R.id.nav_farm:
                 setFragment(FARMING_FRAME);
